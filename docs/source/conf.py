@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Sandbox Altme'
-copyright = '2022, Thierry Thevenet'
+project = 'Altme'
+copyright = '2022, Web3 Digital Wallet'
 author = 'Thierry Thevenet'
 release = '0.1'
 
@@ -26,3 +26,4 @@ exclude_patterns = []
 
 html_theme = 'classic'
 html_static_path = ['_static']
+html_theme_options = {'body_max_width': '70%'}

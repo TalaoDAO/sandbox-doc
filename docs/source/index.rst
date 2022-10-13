@@ -3,15 +3,30 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Sandbox Altme's documentation!
+Welcome to Altme's documentation!
 =========================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Architecture:
+
+   integration
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Implementation:
 
    getting_started
+   code_issuer
+   code_verifier
+  
    
+.. toctree::
+   :maxdepth: 2
+   :caption: Protocol wallet/issuer/verifier:
+
+   altme
+
 
 
 Indices and tables
