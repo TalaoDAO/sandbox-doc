@@ -14,11 +14,11 @@ Welcome to Altme's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Implementation:
+   :caption: Getting started:
 
    getting_started
-   code_issuer
    code_verifier
+   code_issuer
   
    
 .. toctree::
