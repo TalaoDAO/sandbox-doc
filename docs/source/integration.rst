@@ -1,9 +1,9 @@
 Overview
 ========
 
-Internet applications suffer from the lack of proper identity management. If TCP/IP had been imagined after the publication of the RSA algorithm, it is likely that we would have a public key associated with each of the communication cards of our computers.
-The rise of the web in the 90s favored the emergence of servers that concentrated user access and capitalized on the data stored to the point of being today the identity providers of a significant part of humanity. 
-The GAFAMs set up an identity layer above TCP/IP because there was none and we all missed it.
+Internet applications suffer from the lack of proper identity management. TCP/IP was designed as a network of networks with the sole purpose of identifying machines and not their users.
+The rise of the web in the 90s favored the emergence of servers that concentrated user access and capitalized on stored data to the point of being today the identity providers of a significant part of humanity. .
+The GAFAMs implemented an identity layer above TCP/IP because there was none and we all missed it.
 
 For about ten years now, the concern for the protection of personal data has become a major subject for policies and new paths have been opened up, such as in particular the concepts of 
 Self Sovereign Identity (SSI) which allows everyone to have their data in the format electronically as is done for paper data.
@@ -112,6 +112,8 @@ whitelist
 The whitelist is managed by a smart contract that allows you to create whitelists adapted to each use case and then add the blockchain addresses of service users.
 It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application.
 
+Verifier pays the fees of the transaction.
+
 
 Flow between wallet, dApp and Verifier
 ======================================
@@ -120,7 +122,13 @@ Flow between wallet, dApp and Verifier
 Hybrid dApp onboards a user with VCs
 ------------------------------------
 
+This is the most common use case because most web3 applications already have centralized management of their users.
+It is likely that the application also keeps track of users' data in its local database for later use of the data (CRM).
+
+In this specific case of cross device (desktop + wallet), the user will scan a QRcode twice. ....to think about another option!!!!!
+
 Application (Hybrid dApp) is client/server with dApp features as SPA
+
 There are 3 protocols that are used in these interactions:
 
 * Wallet -Application: it is the synchronization between a crypto wallet and a dApp. The wallet must confirm that it owns the private key associated with its address by signing a payload. We use Beacon.   
