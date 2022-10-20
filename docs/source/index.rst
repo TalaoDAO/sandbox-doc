@@ -8,22 +8,21 @@ Welcome to Altme's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Architecture:
+   :caption: Web3 and SSI components :
 
    integration
 
 .. toctree::
    :maxdepth: 2
-   :caption: Getting started:
+   :caption: Getting started :
 
    getting_started
    code_verifier
-   code_issuer
-  
+ 
    
 .. toctree::
    :maxdepth: 2
-   :caption: Protocol wallet/issuer/verifier:
+   :caption: Advanced :
 
    altme
 

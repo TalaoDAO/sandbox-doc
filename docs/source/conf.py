@@ -24,6 +24,6 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'classic'
+html_theme = 'bizstyle'
 html_static_path = ['_static']
-html_theme_options = {'body_max_width': '70%'}
+html_theme_options = {'body_max_width': '75%'}

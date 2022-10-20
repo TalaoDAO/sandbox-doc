@@ -22,8 +22,6 @@ Web3 suffers like web2 from the lack of proper identity management. On the other
 * The users of web3 applications are even less docile than those of internet applications. they are more concerned with the management of their data because decentralized finance has already done its work.
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
-Web3 and SSI components, protocols and more 
-============================================
 
 Universal wallet
 ----------------
