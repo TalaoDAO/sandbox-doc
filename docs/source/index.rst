@@ -17,6 +17,7 @@ Welcome to Altme's documentation!
    :caption: Getting started :
 
    getting_started
+   code_beacon
    code_verifier
  
    
