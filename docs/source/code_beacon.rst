@@ -1,5 +1,5 @@
-Integrate an issuer with Beacon 
-===============================
+Beacon integration 
+==================
 
 Overview
 --------
@@ -38,7 +38,7 @@ The dApp code to launch the issuer :
                })
     
 
-You can find the Welcome card parameters on the platform https://talao.co/sandbox. After login, choose the Beacon integration option.
+You can find the Welcome card parameters (payload and client_secret) on the platform https://talao.co/sandbox. After login, choose the Beacon integration option.
 
 Make a copy of this issuer and generates your own issuer of verifiable credential.  
 
@@ -52,16 +52,15 @@ You can check the design of the credential card with the test button.
 Get user data with no code
 --------------------------
 
-With no code you can have a look at all connexions : click on the Activity button bottom down to get the list of connexions and the data sent by the user. You will get the address of your users.
-
-
+With no code you can have a look at all connexions : click on the Activity button bottom down to get the list of connexions and the data sent by users.
+You will get the address of your users.
 
 Get user data with a webhook
 ----------------------------- 
 
-If you want to receive the data in you rbackend, open a webhook and copy the URL of the webhook in the page.
+If you want to receive the data in your backend, create a webhook and copy the URL of the webhook in the page ("Webhook URL of your application").
 
-Below an example of a webhook in python with flask :
+Below an example of a webhook code in python :
 
 
 .. code-block:: python
@@ -70,13 +69,14 @@ Below an example of a webhook in python with flask :
 
     app = Flask(__name__)
     app.config.update(SECRET_KEY = "abcdefgh")
+    client_secret = '5be650e6-5226-11ed-8298-0a1628958560'
 
     def dapp_wallet():
         return render_template('dapp.html')
     
     def dapp_webhook() :
-        if request.headers.get("key") != client_secret :
-            return jsonify("Forbidden"), 403
+        if request.headers.get('key') != client_secret :
+            return jsonify('Forbidden'), 403
         data = request.get_json()
         if data['event'] == 'ISSUANCE' :
             print(data)
@@ -87,8 +87,15 @@ Below an example of a webhook in python with flask :
         app.run( host = IP, port=4000, debug =True)
 
 
-Lets explain , the first function display the dApp code. The second tests the request agauinst the client_secret and gets the data transfered by the user !
+Let's explain , the first function display the dApp code.
+The second tests the request against the client_secret and gets the data transfered by the user !
 
+2 events are sent to the webhook :
+
+* 'ISSUANCE'
+* 'SIGNED_CREDENTIAL'
+
+The first one sends user data, the second one sends a copy of the credential which is issued.
 
 
 Check the age of your users (+13, +18)
