@@ -29,7 +29,15 @@ A universal wallet is a wallet that carries the private keys of its crypto accou
 
 A universal wallet can buy, transfer and receive cryptos and NFTs and also receive and present verifiable credentials and verifiable presentations to the W3C standard.
 
+
+
+.. image:: universal_wallet.png
+      :width: 600
+
+
 This also implies that a universal wallet supports both connection protocols with a dApp such as Beacon (or its walletConnect equivalent on EVM) and SSI protocols (WACI PEX, SIOPv2, ...DIDComm,..).
+  
+  
 
 DID for universal wallet
 ------------------------

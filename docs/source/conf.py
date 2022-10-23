@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Altme'
+project = 'Altme wallet and sandbox'
 copyright = '2022, Web3 Digital Wallet'
 author = 'Thierry Thevenet'
-release = '0.1'
+release = '0.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

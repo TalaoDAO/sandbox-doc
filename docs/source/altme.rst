@@ -63,7 +63,7 @@ When the wallet makes a GET to the Issuer endpoint, a JSON is returned to the wa
 
 example:  
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
            "type": "CredentialOffer",
@@ -84,7 +84,7 @@ id, challenge and domain are optional attributes.
 
 The wallet response will be :
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
            "id" : ""hjhghlkjgljkgjkg",
@@ -95,7 +95,7 @@ The wallet response will be :
 
 or if there are several verifiable presentations  
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
             "id" : "hjhghlkjgljkgjkg",
@@ -125,7 +125,7 @@ The "Informations" accordion of Altme is made up of all properties of the output
 Altme supports type "string" with specific format "email", "uri", "date", hour" and other types as "number", "integer" and "bool". See an example here :   
 
 
-.. code-block:: json
+.. code-block:: javascript
 
   { "output_descriptors":[                       
                         {
@@ -206,7 +206,7 @@ Altme supports type "string" with specific format "email", "uri", "date", hour" 
 An example here with output descriptors :  
 
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
               "id":"PC_01",
@@ -296,8 +296,7 @@ Input descriptors are used to specify the data or credentials needed to issue a 
 An example here with only input descriptors (EmailPass required to issue a credential) :  
 
 
-.. code-block:: json
-
+.. code-block:: javascript
   {
   "credential_manifest": {
     "presentation_definition": {
@@ -339,7 +338,7 @@ Verifier implementation
 
 There are 2 possibilities to foresee for the value of query.type of the JSON of the GET response of the Verify (“DIDAuth” or “QueryByExample”):
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
            "type": "VerifiablePresentationRequest",
@@ -354,7 +353,7 @@ There are 2 possibilities to foresee for the value of query.type of the JSON of 
 or: 
 
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
            "type": "VerifiablePresentationRequest",
@@ -375,7 +374,7 @@ DIDAuth
 
 If Query.type = “DIDAuth” , then it is a basic authentication request that does not include a verifiable credential : there is no selection of credential to propose to the user, call the function didkit.DIDAuth(did, “{“ challenge ”:“ .... ”,“ domain ”:“ ..... ”}”, key) which will create an empty presentation used only for authentication. The presentation passed with the POST request will look like this:
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
   "@context": [
@@ -427,7 +426,7 @@ QBE Examples
 Example 1
 Verifier requests VCs issued by did:tz:tz2NQkPq3FFA3zGAyG8kLcWatGbeXpHMu7yk:
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
     "type": "VerifiablePresentationRequest",
@@ -456,7 +455,7 @@ Verifier requests VCs issued by did:tz:tz2NQkPq3FFA3zGAyG8kLcWatGbeXpHMu7yk:
 Example 2
 Verifier requests a ResidentCard:
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
     "type": "VerifiablePresentationRequest",
@@ -480,7 +479,7 @@ Verifier requests a ResidentCard:
 Example 3
 Verifier requests a ResidentCard signed by a specific issuer :
 
-.. code-block:: json
+.. code-block:: javascript
 
   {
     "type": "VerifiablePresentationRequest",
@@ -509,7 +508,7 @@ Verifier requests a ResidentCard signed by a specific issuer :
 Example 4
 Verifier attaches messages for user but no credential criters :
 
-.. code-block:: json
+.. code-block:: javascript
   {
     "type": "VerifiablePresentationRequest",
     "query": [
