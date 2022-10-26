@@ -23,8 +23,9 @@ Web3 suffers like web2 from the lack of proper identity management. On the other
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
 
-Universal wallet
-----------------
+Altme wallet is an universal Wallet
+-----------------------------------
+
 A universal wallet is a wallet that carries the private keys of its crypto accounts and the verifiable credentials of its decentralized identity.
 
 A universal wallet can buy, transfer and receive cryptos and NFTs and also receive and present verifiable credentials and verifiable presentations to the W3C standard.
@@ -37,7 +38,16 @@ A universal wallet can buy, transfer and receive cryptos and NFTs and also recei
 
 This also implies that a universal wallet supports both connection protocols with a dApp such as Beacon (or its walletConnect equivalent on EVM) and SSI protocols (WACI PEX, SIOPv2, ...DIDComm,..).
   
-  
+
+Altme sandbox is a low code SSI solution
+----------------------------------------
+
+Altem sandbox is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
+
+It makes it possible to verify qualified attributes of a Decentralized Identity or issue for instance a Pass in minutes without diving in complex Self Sovereign Identity (SSI) concepts and tools.
+
+Access is free : https://talao.co/sandbox
+
 
 DID for universal wallet
 ------------------------
@@ -112,7 +122,7 @@ VCs are inherently off-chain as they protect user data and regulations in many c
 It is therefore not possible to have a copy of a chained VC. It seems to us that even a "verification result" is already personal data that should not be exposed on chain.
 The choice we have made is to use whitelists created at the start of the application (and financed by the application and not the user).
 
-whitelist
+Whitelist
 ---------
 
 The whitelist is managed by a smart contract that allows you to create whitelists adapted to each use case and then add the blockchain addresses of service users.
@@ -130,8 +140,6 @@ Hybrid dApp onboards a user with VCs
 
 This is the most common use case because most web3 applications already have centralized management of their users.
 It is likely that the application also keeps track of users' data in its local database for later use of the data (CRM).
-
-In this specific case of cross device (desktop + wallet), the user will scan a QRcode twice. ....to think about another option!!!!!
 
 Application (Hybrid dApp) is client/server with dApp features as SPA
 

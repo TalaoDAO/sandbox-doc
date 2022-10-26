@@ -23,7 +23,7 @@ Welcome to Altme's documentation!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Advanced :
+   :caption: Develop your own verifier and issuer :
 
    altme
 

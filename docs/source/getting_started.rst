@@ -15,14 +15,20 @@ To set your Decentralized Identity, you first need to use the AltMe wallet which
 
 You have now recieved your first VC and you can also check your DID in the menu Settings/Show Decentralized ID. It starts with "did:key". 
 
-Get more credentials
---------------------
+Get more credentials in your wallet
+------------------------------------
 
 Go to the Discover page and you will have a list of credntials you can collect. Most of them needs a KYC process with a liveness test and a check of your documents.
 Those data are only stored in your phone, no data are on chain. Like your wallet in your pocket you own your data and assets all associated to your private keys.
 
-Connect to the Altme platform to setup a verifier
--------------------------------------------------
+Synchronzie a crypto wallet with Altme
+---------------------------------------
+
+TO be done
+
+
+Connect to the Altme Sandbox platform to setup a verifier
+----------------------------------------------------------
 
  1) Go to https://talao.co and click on "Sign-up" in the navigation bar.
  2) Open your Altme wallet and scan the QR code with the wallet scanner,  you will be requested to present your Email Proof.

@@ -1,11 +1,11 @@
-Integrate a verifier
-=====================
+OpenID integration
+==================
 
 
 Overview
 --------
 
-The easiest way to integrate a verifier to your code is to use an OpenID Connect lib. A list of the most know libs are there https://openid.net/developers/certified/.
+The best way to integrate a powerful verifier to your code is to use an OpenID Connect lib. A list of the most know libs are there https://openid.net/developers/certified/.
 
 The Almte platform uses an authentication code flow or an implicit code flow. For dApp you can setup the PKCE option.
 
