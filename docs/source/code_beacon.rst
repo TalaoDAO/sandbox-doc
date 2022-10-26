@@ -6,8 +6,7 @@ Overview
 
 Beacon is an awasome protocol to allow wallets and dApps to exchange data and sign transactions. All you need about Beacon is available there : https://docs.walletbeacon.io/
 
-Integration with Beacon is extremely simple and you can test it in minutes. To initiate the protocol, it suffices to send a payload of RAW/MICHELINE or OPERATION type
- to the signature of the wallet.
+Integration with Beacon is extremely simple and you can test it in minutes. To initiate the protocol, it suffices to send a payload of RAW/MICHELINE or OPERATION type to the signature of the wallet.
 
 This payload will contain a message to your liking and an URL that you will obtain on the Altme Sandbox platform : https://talao.co
 
@@ -18,6 +17,13 @@ The URL is given just after the fragment "#"" with no space. Example :
     'Get your Welcome card ! #https://talao.co/sandbox/op/beacon/ormmcdomjv?issuer=did:ethr:0x64098e894fea5b83e7e4c52a30d70b98e25bd9d5'
                
 
+User will be asked to sign the payload as usual but just after Altme wallet will start a process to request a credential to an issuer or present a credential to a verifier. 
+User will be asked to accept/reject the credential or select credentials. Those verifiable credentials (https://www.w3.org/TR/vc-data-model/) are json signed file stored in the smartphone. 
+A verifiable credential of a natural person (user) is stored off-chain as it is personal data. The subject of the credential is the Decentralized Identity attached to the wallet.
+This identity is protected by a private key stored in the wallet aside the crypto privates keys.
+
+Basically Beacon is used to initiate a Self Sovereign Identity standard protocol to request or present verifiable credentials to issuers or verifiers. Other protocols like OpenId 4 SSI or WACI exist.
+
 Create and issue a Welcome card to your users
 ----------------------------------------------
 
@@ -25,7 +31,7 @@ That card is a verifiable credential and you will need to get an Issuer. This ca
 
 For that exemple we are going to use the Issuer "Example 1" which is available on the Sandbox platform.
 
-After pairing with the wallet, the dApp code to launch that issuer from your dApp is simple : 
+After pairing with the wallet, the dApp code to launch that request is simple : 
 
 .. code-block:: javascript
 
@@ -34,10 +40,7 @@ After pairing with the wallet, the dApp code to launch that issuer from your dAp
           payload: 'Get your Welcome card ! #https://talao.co/sandbox/op/beacon/ormmcdomjv?issuer=did:ethr:0x64098e894fea5b83e7e4c52a30d70b98e25bd9d5'
                })
 
-User will be asked to sign the payload as usual but just after Altme wallet will start a process to request the Welcome card to the issuer.
-User will be asked to accept or reject the card. This card is a verifiable credential (https://www.w3.org/TR/vc-data-model/), it is a json signed file stored in the smartphone. 
-A verifiable credential of a natural person (user) is stored off-chain as it is personal data. The subject of the credential is the Decentralized Identity attached to the wallet.
-This identity is protected by a private key stored in the wallet aside teh crypto privates keys.
+
 
 To sign the payload, you can also use a MICHELINE or OPERATION message after encoding the message in bytes as it is requested : https://tezostaquito.io/docs/signing/
 
