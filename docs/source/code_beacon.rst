@@ -10,7 +10,7 @@ Integration with Beacon is extremely simple and you can test it in minutes. To i
 
 This payload will contain a message to your liking and an URL that you will obtain on the Altme Sandbox platform : https://talao.co
 
-The URL is given just after the fragment "#"" with no space. Example :
+The URL is given just after the fragment "#" with no space. Example with a RAW message :
 
 .. code-block:: javascript
 
@@ -39,7 +39,6 @@ After pairing with the wallet, the dApp code to launch that request is simple :
           signingType: beacon.SigningType.RAW,
           payload: 'Get your Welcome card ! #https://talao.co/sandbox/op/beacon/ormmcdomjv?issuer=did:ethr:0x64098e894fea5b83e7e4c52a30d70b98e25bd9d5'
                })
-
 
 
 To sign the payload, you can also use a MICHELINE or OPERATION message after encoding the message in bytes as it is requested : https://tezostaquito.io/docs/signing/
@@ -131,6 +130,7 @@ Example of an Over18 check with a RAW message type
 
 * verifier id : jvlfopeogt
 * verifier secret : c8f90f24-5506-11ed-b15e-0a1628958560
+* payload : 'I am over 18 years old#https://talao.co/sandbox/op/beacon/verifier/jvlfopeogt?issuer=did:tz:tz1NyjrTUNxDpPaqNZ84ipGELAcTWYg6s5Du'
 
 
 .. code-block:: javascript
