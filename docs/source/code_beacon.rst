@@ -78,11 +78,11 @@ Below an example of a webhook code in python :
 
     app = Flask(__name__)
     app.config.update(SECRET_KEY = "abcdefgh")
-    client_secret = '5be650e6-5226-11ed-8298-0a1628958560'
+    issuer_secret = '5be650e6-5226-11ed-8298-0a1628958560'
     
     @app.route('/webhook', methods=['POST'])
     def dapp_webhook() :
-        if request.headers.get('key') != client_secret :
+        if request.headers.get('key') != issuer_secret :
             return jsonify('Forbidden'), 403
         data = request.get_json()
         if data['event'] == 'ISSUANCE' :
@@ -95,9 +95,7 @@ Below an example of a webhook code in python :
 
 
 Let's explain , the first function display the dApp code.
-The second tests the request against the client_secret and gets the data transfered by the user !
-
-
+The second tests the request against the issuer secret and gets the data transfered by the user !
 
 
 Check the age of your users (+13, +18) with a Verifier
@@ -105,10 +103,20 @@ Check the age of your users (+13, +18) with a Verifier
 
 Access to NFT marketplaces is legitimately limited to children. Controlling the age of your users is fundamental. With Altme you have a quick solution that is easy to set up.
 
-Here are the calls to integrate in your dApp through a payload request for signature :
 
 
-Example of an Over13 check with a MICHELINE message type
+
+.. image:: over18-13.png
+
+
+
+Here are the calls to integrate in your dApp through a payload request for signature (both examples available on https://talao.co):
+
+
+Example of an Over13 check with a MICHELINE message type :
+
+* verifier id : tuaitvcrkl
+* verifier secret : d461d33c-550f-11ed-90f5-0a1628958560
 
 .. code-block:: javascript
 
@@ -119,6 +127,11 @@ Example of an Over13 check with a MICHELINE message type
 
 
 Example of an Over18 check with a RAW message type
+
+
+* verifier id : jvlfopeogt
+* verifier secret : c8f90f24-5506-11ed-b15e-0a1628958560
+
 
 .. code-block:: javascript
 
@@ -156,12 +169,12 @@ Below an example of a webhook code in python :
     from flask import Flask, jsonify, render_template, request
 
     app = Flask(__name__)
-    app.config.update(SECRET_KEY = "abcdefgh")
-    client_secret = '5be650e6-5226-11ed-8298-0a1628958560' # take the client_secret from the platform https://talao.co
+    app.config.update(SECRET_KEY = "abcdefgh") # Flask key
+    verifier_secret = 'c8f90f24-5506-11ed-b15e-0a1628958560' # take the client_secret from the platform https://talao.co
     
     @app.route('/webhook', methods=['POST'])
     def dapp_webhook() :
-        if request.headers.get('key') != client_secret :
+        if request.headers.get('key') != verifier_secret :
             return jsonify('Forbidden'), 403
         data = request.get_json()
         if data['event'] == 'VERIFICATION' :
@@ -173,7 +186,7 @@ Below an example of a webhook code in python :
         app.run( host = IP, port=4000, debug =True)
 
 
-The webhook function tests the request key against the client_secret and gets the json data transfered by the issuer.
+The webhook function tests the request key against the verifier_secret and gets the json data transfered by the issuer.
 
 
 Process flow (+13, +18) use case
