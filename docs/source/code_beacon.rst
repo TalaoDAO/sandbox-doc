@@ -14,15 +14,19 @@ The URL is given just after the fragment "#" with no space. Example with a RAW m
 
 .. code-block:: javascript
 
-    'Get your Welcome card ! #https://talao.co/sandbox/op/beacon/ormmcdomjv'
+    'Get your Welcome card ! #https://talao.co/sandbox/op/beacon/ormmcdomjv?id=1234'
                
 
 User will be asked to sign the payload as usual but just after Altme wallet will start a process to request a credential to an issuer or present a credential to a verifier. 
-User will be asked to accept/reject the credential or select credentials. Those verifiable credentials (https://www.w3.org/TR/vc-data-model/) are json signed file stored in the smartphone. 
-A verifiable credential of a natural person (user) is stored off-chain as it is personal data. The subject of the credential is the Decentralized Identity attached to the wallet.
+
+User will be asked to sign the payload then to accept or reject the credential offered by an Issuer (or to select the credentials requested by a Verifier).
+
+Those verifiable credentials (https://www.w3.org/TR/vc-data-model/) are json signed file stored in the smartphone. 
+
+A verifiable credential of a natural person (user) is stored off-chain as it is personal data. The subject of the credential is the Decentralized IDentity (DID) attached to the wallet.
 This identity is protected by a private key stored in the wallet aside the crypto privates keys.
 
-Basically Beacon is used to initiate a Self Sovereign Identity standard protocol to request or present verifiable credentials to issuers or verifiers. Other protocols like OpenId 4 SSI or WACI exist.
+Basically Beacon is used to initiate a Self Sovereign Identity standard protocol to request or present verifiable credentials/ verifiable presentations to issuers or verifiers. Other protocols like OpenId 4 SSI or WACI exist.
 
 
 
@@ -32,7 +36,7 @@ Verify the age of your users (+13, +18) in a dApp
 
 Access to NFT marketplaces is legitimately limited to children. Controlling the age of your users is fundamental. With Altme you have a quick solution that is easy to set up.
 
-Thuse "cards" are verifiable credentials and you will need to setup a Verifier.
+Those "cards" are verifiable credentials and you will need to setup a Verifier to check them.
 
 For that exemple we are going to use the Verifier Over 13 and Over 18 which are available on the Sandbox platform (Beacon Verifier).
 
@@ -43,10 +47,10 @@ After pairing with the wallet, the dApp code to launch that request is simple :
 
 
 
-Here are the calls to integrate in your dApp through a payload request for signature (both examples available on https://talao.co):
+Here are the calls to integrate in your dApp through a payload request for signature (both Verifiers are available on https://talao.co):
 
 
-Example of an Over13 check  :
+Example of an Over13 check   :
 
 * verifier id : tuaitvcrkl 
 * verifier secret : d461d33c-550f-11ed-90f5-0a1628958560
@@ -55,7 +59,7 @@ Example of an Over13 check  :
 
     const signature = await client.requestSignPayload({
           signingType: beacon.SigningType.Raw,
-          payload: 'I am over 13 years old#https://talao.co/sandbox/op/beacon/verifier/tuaitvcrkl'
+          payload: 'I am over 13 years old#https://talao.co/sandbox/op/beacon/verifier/tuaitvcrkl?id=1234'
                })
 
 
@@ -70,13 +74,15 @@ Example of an Over18 check
 
     const signature = await client.requestSignPayload({
           signingType: beacon.SigningType.RAW,
-          payload: 'I am over 18 years old#https://talao.co/sandbox/op/beacon/verifier/jvlfopeogt'
+          payload: 'I am over 18 years old#https://talao.co/sandbox/op/beacon/verifier/jvlfopeogt?id=1234'
                })
 
 
 The user will be asked to prove their age with a credential.
 
-You can set up your own verifiers to receive data or verify your users' credentials.
+You can set up your own verifiers to receive data and verify your users' credentials.
+
+NB : The "id" argument is useful to attach data to a web session or a blockchain address. That address could be for instance the one provided by Beacon after pairing.  
 
 
 Receive the Verifier data with a webhook in your backend
@@ -100,7 +106,7 @@ Below an example of a webhook code in python :
         if request.headers.get('key') != verifier_secret :
             return jsonify('Forbidden'), 403
         data = request.get_json()
-        if data['event'] == 'VERIFICATION' :
+        if data['event'] == 'VERIFICATION' :  # this is an event to catch a digest of the credential
             print(data)
             return jsonify('ok')
     
@@ -112,19 +118,31 @@ Below an example of a webhook code in python :
 The webhook function tests the request key against the verifier_secret and gets the json data transfered by the verifier with the event 'VERIFICATION'.
 
 
+Data received are JSON : 
+
+.. code-block:: javascript 
+
+   {"event": "VERIFICATION", "id": "1234", "presented": "2022-11-15T14:59:43Z", "vc_type": ["Over13"], "verification": true}
+
+
+An event "VERIFICATION_DATA" is also available. In that case the webhook receive the full verifiable presentation signed by the wallet with the verifiable credential signed by the issuer.
+
+
 Verify other data with other credentials
 ----------------------------------------
 
 Many credentials are today available for user onboardings :
 
-* over 13, over 18
+* Over 13
+* Over 18
 * Age range
 * Nationality
 * ID card
+* Driver License
 * Passport number (hash)
 * Email proof
 * Phone proof
-* Company pass
+* Custom : membership cards, vouchers, tickets,...
 
 
 Issue a Welcome card in a dApp

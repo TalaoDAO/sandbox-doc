@@ -10,8 +10,8 @@ The best way to integrate a powerful verifier to your code is to use an OpenID C
 The Almte platform uses an authentication code flow or an implicit code flow. For dApp you can setup the PKCE option.
 
 
-Example 1 with implicit flow with no code 
------------------------------------------
+Example 1 with an "implicit flow"
+---------------------------------
 
 This is simple integration for a CMS like Webflow or a Single Page Application like dApp.
 
@@ -58,19 +58,20 @@ Go to https://jwt.io and paste the id_token value in the left side and you will 
 
 Based on that  example you can request different types of credentials to authenticate your users as :
 
-- Over 13/18 yo proof
-- Phone proof
-- Gender proof
-- Nationality proof
-- Blockchain address
-- KYC 
-- etc...
+* Over 13
+* Over 18
+* Phone proof
+* Gender proof
+* Nationality proof
+* Blockchain address
+* ID card
+* Custom credentials...
 
 To make your own verifier, you just need to go to the plateform https://talao.co and to copy the example and configure the landing pasge.
 
 
-Example 1 with authorization code flow in Python
-------------------------------------------------
+Example 1 with an "authorization code flow" in Python
+------------------------------------------------------
 
 TYpical integration with an application which has a backend.
 
