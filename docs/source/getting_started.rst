@@ -21,11 +21,6 @@ Get more credentials in your wallet
 Go to the Discover page and you will have a list of credntials you can collect. Most of them needs a KYC process with a liveness test and a check of your documents.
 Those data are only stored in your phone, no data are on chain. Like your wallet in your pocket you own your data and assets all associated to your private keys.
 
-Synchronzie a crypto wallet with Altme
----------------------------------------
-
-TO be done
-
 
 Connect to the Altme Sandbox platform to setup a verifier
 ----------------------------------------------------------

@@ -33,7 +33,7 @@ A universal wallet can buy, transfer and receive cryptos and NFTs and also recei
 
 
 .. image:: universal_wallet.png
-      :width: 600
+      :width: 1000
 
 
 This also implies that a universal wallet supports both connection protocols with a dApp such as Beacon (or its walletConnect equivalent on EVM) and SSI protocols (WACI PEX, SIOPv2, ...DIDComm,..).

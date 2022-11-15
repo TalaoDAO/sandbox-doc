@@ -10,7 +10,7 @@ Welcome to Altme's documentation!
    :maxdepth: 2
    :caption: Web3 and SSI components :
 
-   integration
+   introduction
 
 .. toctree::
    :maxdepth: 2
@@ -18,7 +18,7 @@ Welcome to Altme's documentation!
 
    getting_started
    code_beacon
-   code_verifier
+   code_openid
  
    
 .. toctree::

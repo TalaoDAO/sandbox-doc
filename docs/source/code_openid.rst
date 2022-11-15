@@ -137,10 +137,4 @@ https://talao.co/sandbox/op/.well-known/openid-configuration
 
 
 
-
-Example with Express nodejs
----------------------------
-
-.. code-block:: javascript
-
     
