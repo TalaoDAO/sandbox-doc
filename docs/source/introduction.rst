@@ -23,7 +23,7 @@ Web3 suffers like web2 from the lack of proper identity management. On the other
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
 
-Altme wallet is an universal Wallet
+Altme Wallet is an universal Wallet
 -----------------------------------
 
 A universal wallet is a wallet that carries the private keys of its crypto accounts and the verifiable credentials of its decentralized identity.
@@ -38,11 +38,14 @@ A universal wallet can buy, transfer and receive cryptos and NFTs and also recei
 
 This also implies that a universal wallet supports both connection protocols with a dApp such as Beacon (or its walletConnect equivalent on EVM) and SSI protocols (WACI PEX, SIOPv2, ...DIDComm,..).
   
+Altme wallet is available on `Apple Store <https://apps.apple.com/fr/app/altme/id1633216869>`_ and `Google Play <https://play.google.com/store/apps/details?id=co.altme.alt.me.altme>`_  .
 
-Altme sandbox is a low code SSI solution
+
+
+Altme Sandbox is a low code SSI solution
 ----------------------------------------
 
-Altem sandbox is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
+Altme Sandbox is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
 
 It makes it possible to verify qualified attributes of a Decentralized Identity or issue for instance a Pass in minutes without diving in complex Self Sovereign Identity (SSI) concepts and tools.
 
@@ -105,8 +108,8 @@ The multi-criteria approach makes it possible to deal with complex use cases inv
 An example is that of a voting application that would like to whitelist only users who live in a specific city and who are, for example, under 25 years old.
 
 
-Data persistence and on-chain storage
---------------------------------------
+Data persistence and on-chain storage : Whitelist vs Soulbound
+---------------------------------------------------------------
 
 In an SSI environment, the user carries their data in their wallet. At each onboarding he is able to present his VCs. 
 Universal wallets have here a very big advantage over crypto wallets which can only hope that another dApp has previously created an on-chain record to mark an address as verified.
@@ -120,13 +123,15 @@ For a hybrid application that has a base on a server, the implementation is simp
 This is where blockchain comes into play in the interaction of SSI and web3.
 VCs are inherently off-chain as they protect user data and regulations in many countries now include the right to be forgotten.
 It is therefore not possible to have a copy of a chained VC. It seems to us that even a "verification result" is already personal data that should not be exposed on chain.
-The choice we have made is to use whitelists created at the start of the application (and financed by the application and not the user).
+The choice we have made is to use whitelists or Soulbound tokens created at the start of the application (and financed by the application and not the user).
 
-Whitelist
----------
+The question that arises is the use of data from a verifiable credential by a smart contract :
 
+* A whitelist is managed by a smart contract which allows to create whitelists adapted to each use case and then to add the blockchain addresses of the users of the service. It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
+* A non-transferable NFT (soulbound) is mined by the Verifier. The NFT is then validated by the smart contract with the creator address (Verifier address).
+
+The verifier pays the transaction fees and the verifier's DID must be known to the wmart contract to validate the forwarding address.
 The whitelist is managed by a smart contract that allows you to create whitelists adapted to each use case and then add the blockchain addresses of service users.
-It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application.
 
 Verifier pays the fees of the transaction.
 
