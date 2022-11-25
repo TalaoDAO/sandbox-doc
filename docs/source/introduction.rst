@@ -1,5 +1,5 @@
-Overview
-========
+Introduction
+============
 
 Internet applications suffer from the lack of proper identity management. TCP/IP was designed as a network of networks with the sole purpose of identifying machines and not their users.
 The rise of the web in the 90s favored the emergence of servers that concentrated user access and capitalized on stored data to the point of being today the identity providers of a significant part of humanity. .
@@ -81,6 +81,23 @@ of the transactions while guaranteeing the maximum protection of the user's data
 If it is desired to verify that the owner of an address A1 is over 18 years old, the verifier will receive a VC/VP over 18 and a VC/VP which proves that the identity subject of the Over18 (vc.credentialSubject.id) is indeed the owner of the address A1.
 
 
+Give an Identity to your crypto wallet
+--------------------------------------
+
+Current crypto wallets like Metamask, Trust wallet, Ledger Temple wallet do not carry personal data. 
+It is therefore extremely difficult to know the user who is carrying out a transaction. In some cases this can be a problem.
+
+The use of processes such as the KYC carried out by the site of the platform responds badly to this problem for at least two reasons:
+
+* it reveals all of a user's personal data to the operator  
+* it is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
+
+To solve this problem, the Altme wallet offers the possibility of being associated with a crypto wallet if the latter supports the Beacon (Tezos) or Wallet Connect protocols.
+
+This association is made without exchanging private keys by issuing proof of possession of the private key by the crypto wallet. The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
+
+
+
 Hybrid dApp and Pure dApp
 -------------------------
 What we call a Hybrid dApp is an application that uses a back end to store information local to the application.
@@ -135,51 +152,3 @@ The whitelist is managed by a smart contract that allows you to create whitelist
 
 Verifier pays the fees of the transaction.
 
-
-Flow between wallet, dApp and Verifier
-======================================
-
-
-Hybrid dApp onboards a user with VCs
-------------------------------------
-
-This is the most common use case because most web3 applications already have centralized management of their users.
-It is likely that the application also keeps track of users' data in its local database for later use of the data (CRM).
-
-Application (Hybrid dApp) is client/server with dApp features as SPA
-
-There are 3 protocols that are used in these interactions:
-
-* Wallet -Application: it is the synchronization between a crypto wallet and a dApp. We use Beacon in this example.   
-* Wallet - Verifier: this is the protocol that makes it possible to transfer a credential from the wallet to a verifier. We use verifiable presentation request.  
-* Verifier - dApp : As the dApp has a local server,  we use an application webhook.  
-
-
-
-.. image:: hybrid_onboard_user_with_beacon.png
-
-
-dApp onboards a user with VCs
------------------------------
-
-There are 3 protocols that are used in these interactions:
-
-* Wallet - dApp: it is the synchronization between a crypto wallet and a dApp. The wallet must confirm that it owns the private key associated with its address by signing a payload. We use Beacon.   
-* Wallet - Verifier: this is the protocol that makes it possible to produce a VP and then transfer it to the verifier from the wallet. We use verifiable presentation request.  
-* Verifier - Application : we use OpenID authorization code flow with PKCE.  
-
-
-
-.. image:: dapp_onboard_user.png
-
-
-
-dApp adds a user in whitelist
------------------------------
-
-There are 2 protocols that are used in these interactions:
-
-* Wallet - Verifier: this is the protocol that makes it possible to produce a VP and then transfer it to the verifier from the wallet. We use siopv2 or verifiable presentation request.  
-* Verifier - dApp : We use OpenID implicit flow which is just a call back without need to authenticate.  
-
-.. image:: add_user_whitelist.png

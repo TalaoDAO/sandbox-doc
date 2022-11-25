@@ -19,6 +19,7 @@ Welcome to Altme's documentation!
    getting_started
    code_beacon
    code_openid
+   flow
  
    
 .. toctree::
