@@ -87,24 +87,26 @@ The wallet response will be :
 .. code-block:: javascript
 
   {
-           "id" : ""hjhghlkjgljkgjkg",
-           “Subject_id”, ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-            “presentation”: {}
+           "id" : "hjhghlkjgljkgjkg",
+           “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+            “presentation”: vp
   }
 
+vp is a verifiable presentation as a string here.
 
 or if there are several verifiable presentations  
 
 .. code-block:: javascript
 
   {
-            "id" : "hjhghlkjgljkgjkg",
-           “Subject_id”, ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-           “presentation”: "[ "{....verifiable presentation 1...}, { vp ....} ]"
+          "id" : "hjhghlkjgljkgjkg",
+          “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+          “presentation” : "[ vp1, vp2, vp3,... ]"
   }
 
+vp1,... are strings
 
-verifiable presentation is a credential bound with nonce if available in the request. This credential includes all the existing profile attributes if wallet holder consents.  
+verifiable presentation (vp) is a credential bound with nonce if available in the request. This credential includes all the existing profile attributes if wallet holder consents.  
 
 Credential manifest
 -------------------

@@ -88,7 +88,30 @@ NB : The "id" argument is useful to attach data to a web session or a blockchain
 Receive the Verifier data with a webhook in your backend
 --------------------------------------------------------- 
 
-If you want to receive the data in your backend, create a webhook and copy the URL of the webhook in the page ("Webhook URL of your application").
+If you want to receive the data in your backend, create a webhook and copy the URL of the webhook in the page ("Webhook URL of your application").  
+
+
+* POST request with header Content-Type : application/json and in option an API KEY authentication  'key' : <your_key>)' 
+* Event types : 'VERIFICATION' or 'VERIFICATION _DATA'
+
+
+Example :
+
+
+.. code-block:: javascript 
+
+   {"event": "VERIFICATION", "id": "1234", "presented": "2022-11-15T14:59:43Z", "vc_type": ["Over13"], "verification": true}
+
+
+* event : string 'VERIFICATION' or 'VERIFICATION_DATA'
+* id : string : The id passed through the call or the user blockchain address
+* presented : string : date of the user connexion
+* vc_type : ov13, over18, loyalty cards, etc
+* verification : Signature check
+
+
+Event "VERIFICATION_DATA" : in that case the webhook receive the full verifiable presentation signed by the wallet with the verifiable credential signed by the issuer.
+
 
 Below an example of a webhook code in python :
 
@@ -115,17 +138,6 @@ Below an example of a webhook code in python :
         app.run( host = IP, port=4000, debug =True)
 
 
-The webhook function tests the request key against the verifier_secret and gets the json data transfered by the verifier with the event 'VERIFICATION'.
-
-
-Data received are JSON : 
-
-.. code-block:: javascript 
-
-   {"event": "VERIFICATION", "id": "1234", "presented": "2022-11-15T14:59:43Z", "vc_type": ["Over13"], "verification": true}
-
-
-An event "VERIFICATION_DATA" is also available. In that case the webhook receive the full verifiable presentation signed by the wallet with the verifiable credential signed by the issuer.
 
 
 Verify other data with other credentials
