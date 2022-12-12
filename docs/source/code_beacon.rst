@@ -54,6 +54,7 @@ Example of an Over13 check   :
 
 * verifier id : tuaitvcrkl 
 * verifier secret : d461d33c-550f-11ed-90f5-0a1628958560
+* TezID proof type : tuaitvcrkl
 
 .. code-block:: javascript
 
@@ -110,7 +111,7 @@ Example :
 * verification : Signature check
 
 
-Event "VERIFICATION_DATA" : in that case the webhook receive the full verifiable presentation signed by the wallet with the verifiable credential signed by the issuer.
+Event "VERIFICATION_DATA" : in that case the webhook receives the full verifiable presentations signed by the wallet with the verifiable credentials signed by the issuer.
 
 
 Below an example of a webhook code in python :
@@ -138,7 +139,23 @@ Below an example of a webhook code in python :
         app.run( host = IP, port=4000, debug =True)
 
 
+On-chain and off-chain access with TezID
+----------------------------------------
 
+In some situations, it is important to be able to identify addresses that meet the Verify criteria without revealing the data. 
+For this, it is possible to access on-chain and off-chain the addresses status through TezID. https://blog.tezid.net/tezid-9d82efbba006
+
+At it’s core TezID is a Smart Contract with registered addresses and verified proofs for each address. 
+
+TezID is composed of smart contracts to store the list of addresses associated with an on-chain verifier (proof type) and APIs to consult these off-chain addresses.
+
+The documentation is available here https://github.com/tezid/docs#the-oracle-api
+
+Example of the on-chain view on Ghostnet https://ghostnet.tzkt.io/KT1N2HacRzgmKZNmJ6DzRJ9q5bLVUvT6ZdnB/views
+
+For our Over13 example the verifier proof type is tuaitvcrkl , see transaction  https://ghostnet.tzkt.io/tz1iAAJhH465Cf3BnsKQ744XHypQGY1v7Ps9/operations/
+
+In order to guarantee the protection of personal data, the criteria (proof type) are not published on-chain.
 
 Verify other data with other credentials
 ----------------------------------------
