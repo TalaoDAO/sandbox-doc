@@ -125,30 +125,26 @@ The multi-criteria approach makes it possible to deal with complex use cases inv
 An example is that of a voting application that would like to whitelist only users who live in a specific city and who are, for example, under 25 years old.
 
 
-Data persistence and on-chain storage : Whitelist vs Soulbound
----------------------------------------------------------------
+On-chain integration : Anonymous whitelist
+-------------------------------------------
 
 In an SSI environment, the user carries their data in their wallet. At each onboarding he is able to present his VCs. 
-Universal wallets have here a very big advantage over crypto wallets which can only hope that another dApp has previously created an on-chain record to mark an address as verified.
+Data wallets (SSI wallets) have here a very big advantage over crypto wallets which can only hope that another dApp has previously created an on-chain record to mark an address as verified.
 
-
-On the other hand, the question of data persistence arises for asynchronous actions such as that of an NFT drop or an ICO conditioned by a minimum subscription.
+But even with data wallet, the question of data persistence arises for asynchronous actions such as that of an NFT drop or an ICO conditioned by a minimum subscription.
 In this case it is necessary to keep a list of addresses that have presented themselves beforehand, sometimes several weeks before the action.
 
 For a hybrid application that has a base on a server, the implementation is simple. For a dApp you need a storage alternative.
 
 This is where blockchain comes into play in the interaction of SSI and web3.
+
 VCs are inherently off-chain as they protect user data and regulations in many countries now include the right to be forgotten.
 It is therefore not possible to have a copy of a chained VC. It seems to us that even a "verification result" is already personal data that should not be exposed on chain.
-The choice we have made is to use whitelists or Soulbound tokens created at the start of the application (and financed by the application and not the user).
+The choice we have made is to use "anonymous" whitelists created at the start of the application.
 
-The question that arises is the use of data from a verifiable credential by a smart contract :
-
-* A whitelist is managed by a smart contract which allows to create whitelists adapted to each use case and then to add the blockchain addresses of the users of the service. It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
-* A non-transferable NFT (soulbound) is mined by the Verifier. The NFT is then validated by the smart contract with the creator address (Verifier address).
+A whitelist is managed by a smart contract which allows to create whitelists adapted to each use case and then to add the blockchain addresses of the users of the service.
+It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
 
 The verifier pays the transaction fees and the verifier's DID must be known to the wmart contract to validate the forwarding address.
-The whitelist is managed by a smart contract that allows you to create whitelists adapted to each use case and then add the blockchain addresses of service users.
 
-Verifier pays the fees of the transaction.
 

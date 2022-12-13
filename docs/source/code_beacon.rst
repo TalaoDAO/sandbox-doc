@@ -142,8 +142,12 @@ Below an example of a webhook code in python :
 On-chain and off-chain access with TezID
 ----------------------------------------
 
-In some situations, it is important to be able to identify addresses that meet the Verify criteria without revealing the data. 
-For this, it is possible to access on-chain and off-chain the addresses status through TezID. https://blog.tezid.net/tezid-9d82efbba006
+The solution offered by TezID and Altme now provides the developer of a Web3 application on Tezos with this "turnkey" solution.
+The Verifier therefore becomes an off and on chain module providing the Web3 developer with an access point through APIs and entry points on a dedicated smart contract.
+
+It allows the implementation in a few minutes of complex use cases such as multi-criteria onboarding (age group x location x KYC, etc.) while respecting user privacy.
+
+It is possible to access on-chain and off-chain the addresses status through TezID. https://blog.tezid.net/tezid-9d82efbba006
 
 At it’s core TezID is a Smart Contract with registered addresses and verified proofs for each address. 
 
@@ -155,7 +159,7 @@ Example of the on-chain view on Ghostnet https://ghostnet.tzkt.io/KT1N2HacRzgmKZ
 
 For our Over13 example the verifier proof type is tuaitvcrkl , see transaction  https://ghostnet.tzkt.io/tz1iAAJhH465Cf3BnsKQ744XHypQGY1v7Ps9/operations/
 
-In order to guarantee the protection of personal data, the criteria (proof type) are not published on-chain.
+In order to guarantee the protection of personal data, the criteria (proof type) are accessible only through the platform https://talao.co .
 
 Verify other data with other credentials
 ----------------------------------------
