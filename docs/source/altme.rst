@@ -66,13 +66,13 @@ example:
 .. code-block:: javascript
 
   {
-           "type": "CredentialOffer",
-           "id" : "hjhghlkjgljkgjkg",
-           "credentialPreview": {},
-           "expires" : "2022-09-01T19:29:39Z",
-            "challenge" : "mjh45RT56",
-            "domain" : "talao.co",
-            "credential_manifest" : {}     
+    "type": "CredentialOffer",
+    "id" : "hjhghlkjgljkgjkg",
+    "credentialPreview": {},
+    "expires" : "2022-09-01T19:29:39Z",
+    "challenge" : "mjh45RT56",
+    "domain" : "talao.co",
+    "credential_manifest" : {}     
   }
 
 
@@ -87,36 +87,60 @@ The wallet response will be :
 .. code-block:: javascript
 
   {
-           "id" : "hjhghlkjgljkgjkg",
-           “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-            “presentation”: vp
+    "id" : "hjhghlkjgljkgjkg",
+    “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    “presentation”: vp
   }
 
 vp is a verifiable presentation as a string here.
 
-or if there are several verifiable presentations  
+
+If the credential manifest does not request any vc, a vp "did auth" is signed and sent by the wallet to confirm key ownership. Example of a vp "did auth" :
 
 .. code-block:: javascript
 
   {
-          "id" : "hjhghlkjgljkgjkg",
-          “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-          “presentation” : "[ vp1, vp2, vp3,... ]"
+    '@context': [
+      'https://www.w3.org/2018/credentials/v1'
+    ],
+    'type': 'VerifiablePresentation',
+    'proof': {
+      'type': 'Ed25519Signature2018',
+      'proofPurpose': 'authentication',
+      'challenge': '',
+      'verificationMethod': 'did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G#z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G',
+      'created': '2022-12-14T14:17:33.782Z',
+      'domain': '',
+      'jws': 'eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..Di0w_VVLzap9jwE2Ny7CU8dHfxY-yZWJzGzVGj7Z4XNSbeJ4aQVLfix3uGqaAjF53Lb166YY6YqwouAjRz-5Bw'
+    },
+    'holder': 'did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G'
+  }
+
+
+Several verifiable presentations are requested in the credential manifest, wallet response will be :
+
+
+.. code-block:: javascript
+
+  {
+    "id" : "hjhghlkjgljkgjkg",
+    “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    “presentation” : "[ vp1, vp2, vp3,... ]"
   }
 
 vp1,... are strings
 
 verifiable presentation (vp) is a credential bound with nonce if available in the request. This credential includes all the existing profile attributes if wallet holder consents.  
 
-Credential manifest
--------------------
+Credential manifest of the credential offer protocol
+=====================================================
 
 ...(DIF) "For User Agents (e.g. wallets) and other service that wish to engage with Issuers to acquire credentials, there must exist a mechanism for assessing what inputs are required from a Subject to process a request for credential(s) issuance. The Credential Manifest is a common data format for describing the inputs a Subject must provide to an Issuer for subsequent evaluation and issuance of the credential(s) indicated in the Credential Manifest."  
 
 In a credential manifest you can provide output descriptors with wallet rendring metada.   
  
-Wallet rendering
-'''''''''''''''''
+Output descriptors for Wallet rendering
+----------------------------------------
 
 Wallet rendering is defined by this standard https://identity.foundation/wallet-rendering/   
 
@@ -295,10 +319,13 @@ Input descriptors
 -------------------
 
 Input descriptors are used to specify the data or credentials needed to issue a credential. It is a main feature of DIF Presentation Exchange. See https://identity.foundation/presentation-exchange/#presentation-definition for more information.      
+
+
 An example here with only input descriptors (EmailPass required to issue a credential) :  
 
 
 .. code-block:: javascript
+
   {
   "credential_manifest": {
     "presentation_definition": {
@@ -326,6 +353,34 @@ An example here with only input descriptors (EmailPass required to issue a crede
   }
 
 
+Example to request any credentials with the attribute birthDate
+
+.. code-block:: javascript
+
+  {
+  "credential_manifest": {
+    "presentation_definition": {
+      "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+      "input_descriptors": [
+        {
+          "id": "#765765",
+          "constraints": 
+            "fields": [
+              {
+                "path": [
+                  "$.credentiaSubject.birthDate"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+    }
+  }
+
+
+
 Presentation request query types 
 =================================
 
@@ -343,12 +398,12 @@ There are 2 possibilities to foresee for the value of query.type of the JSON of 
 .. code-block:: javascript
 
   {
-           "type": "VerifiablePresentationRequest",
-           "query": [{
-               "type": “DIDAuth”
-               }],
-           "challenge": "a random uri",
-           "domain" : "talao.co"
+    "type": "VerifiablePresentationRequest",
+    "query": [{
+        "type": “DIDAuth”
+        }],
+    "challenge": "a random uri",
+    "domain" : "talao.co"
   }
 
 
@@ -358,16 +413,16 @@ or:
 .. code-block:: javascript
 
   {
-           "type": "VerifiablePresentationRequest",
-           "query": [{
-               "type": "QueryByExample",
-               "credentialQuery": [
-                   {
+    "type": "VerifiablePresentationRequest",
+    "query": [{
+      "type": "QueryByExample",
+      "credentialQuery": [
+          {
                     ……
                    }]
                }],
-           "challenge": "a random uri",
-           "domain" : "talao.co"
+    "challenge": "a random uri",
+    "domain" : "talao.co"
   }
 
 
@@ -379,18 +434,18 @@ If Query.type = “DIDAuth” , then it is a basic authentication request that d
 .. code-block:: javascript
 
   {
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1"
-  ],
-  "type": "VerifiablePresentation",
-  "proof": {
-    "type": "EcdsaSecp256k1Signature2019",
-    "created": "2021-08-28T16: 13: 23.740Z",
-    “challenge”: “d602e96d-08cb-11ec-a6fa-8d5c53eaebfb",
-    “domain”: “talao.co”
-    "jws ":" eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..PgpEElB1tvcY9tdzK6EDKLvysj3vcH-zg5EIiGpk_q4m0NrAmjA81B7QdVvKllSzzfKw-1oTJuu4b4ihCvMXRwA
-  "},
-  "holder": "did:ethr:0xee09654eedaa79429f8d216fa51a129db0f72250"
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1"
+    ],
+    "type": "VerifiablePresentation",
+    "proof": {
+      "type": "EcdsaSecp256k1Signature2019",
+      "created": "2021-08-28T16: 13: 23.740Z",
+      “challenge”: “d602e96d-08cb-11ec-a6fa-8d5c53eaebfb",
+      “domain”: “talao.co”
+      "jws ":" eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..PgpEElB1tvcY9tdzK6EDKLvysj3vcH-zg5EIiGpk_q4m0NrAmjA81B7QdVvKllSzzfKw-1oTJuu4b4ihCvMXRwA
+  " },
+    "holder": "did:ethr:0xee09654eedaa79429f8d216fa51a129db0f72250"
   }
 
 
