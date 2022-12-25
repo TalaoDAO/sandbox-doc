@@ -10,26 +10,51 @@ Self Sovereign Identity (SSI) which allows everyone to have their data in the fo
 From our point of view, what is called web3 is today the culmination of these approaches, web3 is not just cryptos and finance, 
 web3 is also the decentralization of data and perhaps even above all data. ..
 
-The Altme wallet that we offer is a so-called "Universal" wallet.
-It is universal in that it allows you to manage in the same mobile application both your cryptos, NFT and your identity data.
-Identity must be understood in the broadest sense, this of course includes identity documents but also the personal data of our associative, cultural, professional and economic life.
-Altme is simply an electronic version of the wallet we've had in our pockets for years. A Universal wallet is ultimately very common.
-The Altme wallet is a new generation of wallet, it is likely that in the medium term other provider wallets will see the benefit of associating data with the transfer of assets.
-identity allows a third party to manage its risk in an exchange. Identity is essential in any economic system.
-
 Web3 suffers like web2 from the lack of proper identity management. On the other hand, there are particularities which make SSI integration even more difficult:
 
 * The users of web3 applications are even less docile than those of internet applications. they are more concerned with the management of their data because decentralized finance has already done its work.
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
 
+What is Self Sovereign Identity ?
+---------------------------------
+
+Self-Sovereign Identity, or SSI, is a new technology compatible
+with blockchain that gives users and organizations the ability to control their own digital credentials
+and identity data, rather than relying on a central authority or central database to manage their personal
+information.
+
+With SSI, users are able to store, manage and share their personal data in a decentralize manner, enabling
+greater privacy and security. SSI also uses Zero-Knowledge Proof and "Selective Disclosure" to protect
+users privacy.
+
+SSI is now an international standard defined by the World Wide Web Consortium (W3C) https://www.w3.org/ with two main documents :
+
+* Verifiable credentials data model https://www.w3.org/TR/vc-data-model/
+* Decentralized Identifiers https://www.w3.org/TR/did-core/
+
+
+Altme solution is made up of 3 offers
+---------------------------------------
+
+* Altme Wallet : The user friendly SSI wallet for web3 applications
+* Altme Saas : The next generation platform to build Issuers and Verifiers in minutes
+* Altme Web3 Issuer : A trusted issuer of Web3 credentials 
+
 Altme Wallet is an universal Wallet
 -----------------------------------
 
+The Altme wallet that we offer is a so-called "Universal" wallet.
+
+It is universal in that it allows you to manage in the same mobile application both your cryptos, NFT and your identity data.
+Identity must be understood in the broadest sense, this of course includes identity documents but also the personal data of our associative, cultural, professional and economic life.
+Altme is simply an electronic version of the wallet we've had in our pockets for years. A Universal wallet is ultimately very common.
+
+The Altme wallet is a new generation of wallet, it is likely that in the medium term other provider wallets will see the benefit of associating data with the transfer of assets.
+identity allows a third party to manage its risk in an exchange. Identity is essential in any economic system.
 A universal wallet is a wallet that carries the private keys of its crypto accounts and the verifiable credentials of its decentralized identity.
 
 A universal wallet can buy, transfer and receive cryptos and NFTs and also receive and present verifiable credentials and verifiable presentations to the W3C standard.
-
 
 
 .. image:: universal_wallet.png
@@ -41,15 +66,70 @@ This also implies that a universal wallet supports both connection protocols wit
 Altme wallet is available on `Apple Store <https://apps.apple.com/fr/app/altme/id1633216869>`_ and `Google Play <https://play.google.com/store/apps/details?id=co.altme.alt.me.altme>`_  .
 
 
+Altme Sass is a low code SSI solution to build Issuers and Verfiers in minutes
+--------------------------------------------------------------------------------
 
-Altme Sandbox is a low code SSI solution
-----------------------------------------
-
-Altme Sandbox is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
+Altme Saas is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
 
 It makes it possible to verify qualified attributes of a Decentralized Identity or issue for instance a Pass in minutes without diving in complex Self Sovereign Identity (SSI) concepts and tools.
 
-Access is free : https://talao.co/sandbox
+To use Altme Saas, you don't need to learn Verifiable Credentials standards, DIDs signature or how to work with a complex SDK. Instead, Altme uses OpenID, WalletConnect or Beacon as a simple, familiar method to integrate issuers and verifiers in your Web3, Web2 or CMS application with no code or low code.
+
+Access is free : https://talao.co
+
+
+Altme Web3 Issuer is an issuer for web3 applications
+-----------------------------------------------------
+
+We issue verifiable credentials in the format of Self Sovereign Identity for users of Crypto games, NFT Marketplaces, DeFi and Metaverse
+
+We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data can be viewed in the wallet
+
+Issur DID is did:web:app.altme.io:issuer
+
+DID document is : 
+
+
+.. code-block:: javascript
+
+
+      {
+            "@context": [
+                  "https://www.w3.org/ns/did/v1",
+                  {
+                        "@id": "https://w3id.org/security#publicKeyJwk",
+                        "@type": "@json"
+                  }
+            ],
+            "assertionMethod": [
+                  "did:web:app.altme.io:issuer#key-1"
+            ],
+            "authentication": [
+                  "did:web:app.altme.io:issuer#key-1"
+            ],
+            "capabilityInvocation": [
+                  "did:web:app.altme.io:issuer#key-1"
+            ],
+            "id": "did:web:app.altme.io:issuer",
+            "keyAgreement": [
+                  "did:web:app.altme.io:issuer#key-1"
+            ],
+            "verificationMethod": [
+                  {
+                        "controller": "did:web:app.altme.io:issuer",
+                        "id": "did:web:app.altme.io:issuer#key-1",
+                        "publicKeyJwk": {
+                              "crv": "Ed25519",
+                              "kty": "OKP",
+                              "x": "FUoLewH4w4-KdaPH2cjZbL--CKYxQRWR05Yd_bIbhQo"
+                        },
+                        "type": "JwsVerificationKey2020"
+                  }
+            ]
+      }
+
+This issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported
+
 
 
 DID for universal wallet
@@ -80,9 +160,58 @@ of the transactions while guaranteeing the maximum protection of the user's data
 
 If it is desired to verify that the owner of an address A1 is over 18 years old, the verifier will receive a VC/VP over 18 and a VC/VP which proves that the identity subject of the Over18 (vc.credentialSubject.id) is indeed the owner of the address A1.
 
+Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet
+
+.. code-block:: javascript
+
+
+  {
+      "@context": [ "https://www.w3.org/2018/credentials/v1", 
+		{
+			"TezosAssociatedAddress" : {
+				"@id" : "https://github.com/TalaoDAO/context#tezosassociatedaddress",
+				"@context" : {
+					"@version": 1.1,
+					"@protected": true,
+					"id": "@id",
+                    "type": "@type",
+					"schema" : "https://schema.org/",
+					"accountName" :  "schema:identifier",
+      				"associatedAddress" : "schema:account",
+					"cryptoWalletSignature" : "schema:identifier",
+					"cryptoWalletPayload" : "schema:identifier",
+					"issuedBy": {
+						"@id": "schema:issuedBy",
+						"@context": {
+							"@version": 1.1,
+							"@protected": true,
+							"schema" : "https://schema.org/",
+							"name" :  "schema:name"
+						}
+					}
+       			}
+			}
+		}
+   	],
+	"id" : "urn:uuid:4cd16825-5872-43e5-8a56-7a2c5d5cb2f7",
+	"type": [
+        		"VerifiableCredential",
+           		"TezosAssociatedAddress"
+	],
+	"issuer" : "did:pkh:tz:tz1YtKsJMx5FqhULTDzNxs9r9QYHBGsmz58o",
+	"credentialSubject" : {
+       		"id" : "did:key:zQ3sheeB1CHmCzYWxW13opsYv9AiS4atUAwfwzFoM2gRpifPb",
+       		"type" : "TezosAssociatedAddress",
+          	"associatedAddress" : "tz1YtKsJMx5FqhULTDzNxs9r9QYHBGsmz58o",
+		    "accountName" : "Account 1",
+			"issuedBy" : {"name" : "My wallet"}
+	}
+   }
 
 Give an Identity to your crypto wallet
 --------------------------------------
+
+https://altme.io/wallet-link
 
 Current crypto wallets like Metamask, Trust wallet, Ledger Temple wallet do not carry personal data. 
 It is therefore extremely difficult to know the user who is carrying out a transaction. In some cases this can be a problem.
