@@ -33,6 +33,20 @@ SSI is now an international standard defined by the World Wide Web Consortium (W
 * Verifiable credentials data model https://www.w3.org/TR/vc-data-model/
 * Decentralized Identifiers https://www.w3.org/TR/did-core/
 
+SSI is organised with Issuers, Verifiers and Holders
+
+Issuers : they hold and issue verifiable digital credentials such as certificates of identity (ID card, company or service ID card …),
+driver’s licenses (car/motorcycle, airplanes …), certificates (high school diploma, bachelor’s degree, master’s degree … ), confirmations (authenticity confirmation, vaccination confirmation, …) 
+qualifications (license to practice medicine, nurse, master painter …), powers (official authority, residence authority …), 
+qualifications (further education certificates, personal certificates …).
+
+Verifiers : the acceptance points in this SSI ecosystem need verifiable digital evidence to use and further process the presented digital evidence in a process or application (off- or online). Ideally, this is done completely automatically.
+For this purpose, the application can use the cryptographic and meta information from the SSI blockchain to verify the authenticity of the digital evidence. It is essential that the transmission of the verifiable digital evidence between the owner and the verifier is encrypted.
+
+Holders : they usually have a corresponding SSI app on their mobile device, which stores an SSI wallet with the digital evidence. 
+It is also possible to use a cloud agent. This is particularly useful for backup scenarios. Owners can request all verifiable digital proofs from the corresponding issuers and store them in their own SSI wallet.
+
+
 
 Altme solution is made up of 3 offers
 ---------------------------------------
@@ -40,6 +54,7 @@ Altme solution is made up of 3 offers
 * Altme Wallet : The user friendly SSI wallet for web3 applications
 * Altme Saas : The next generation platform to build Issuers and Verifiers in minutes
 * Altme Web3 Issuer : A trusted issuer of Web3 credentials 
+
 
 Altme Wallet is an universal Wallet
 -----------------------------------
@@ -131,7 +146,6 @@ DID document is :
 This issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported
 
 
-
 DID for universal wallet
 ------------------------
 We have chosen to use the DID method did:key for practical reasons.
@@ -211,35 +225,26 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 Give an Identity to your crypto wallet
 --------------------------------------
 
-https://altme.io/wallet-link
+This is a service offers by Atme, free and available here :  https://altme.io/wallet-link
 
-Current crypto wallets like Metamask, Trust wallet, Ledger Temple wallet do not carry personal data. 
+Current crypto wallets like Metamask, Trust wallet, Ledger or Temple wallet for Tezos do not carry personal data. 
 It is therefore extremely difficult to know the user who is carrying out a transaction. In some cases this can be a problem.
 
-The use of processes such as the KYC carried out by the site of the platform responds badly to this problem for at least two reasons:
+The use of processes such as the KYC carried out by the site of the Web3 platform responds badly to this problem for at least two reasons:
 
 * it reveals all of a user's personal data to the operator  
 * it is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
 
-To solve this problem, the Altme wallet offers the possibility of being associated with a crypto wallet if the latter supports the Beacon (Tezos) or Wallet Connect protocols.
+To solve this problem, Altme offers the possibility to associate the Altme Wallet with a crypto wallet if the latter supports the Beacon Tezos or WalletConnect EVM protocols.
 
-This association is made without exchanging private keys by issuing proof of possession of the private key by the crypto wallet. The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
+This association is made without exchanging private keys by issuing proof of possession of the private key by the crypto wallet. 
 
-
-
-Hybrid dApp and Pure dApp
--------------------------
-What we call a Hybrid dApp is an application that uses a back end to store information local to the application.
-A large part of decentralized game applications or NFT marketplaces are built on this model.
-In particular, a centralized database is used to store the data of users who are authenticated by their blockchain address when synchronizing the wallet with Beacon for example.
-
-What we call a Pure dApp is an application that has no back end. Many DeFi applications work on this model. 
-The particularity of this architecture is that it is not possible to keep information from a user (VCs/VPs or verification result) locally and therefore it is necessary 
-or efficient to have an on-chain storage.
+The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
 
 
-Verifier
---------
+Web3 Verifiers
+--------------
+
 The Verifier is the module of an application or an application whose purpose is to control the accuracy and origin of Verifiable Credentials / Verifiable presentations of a user (Holder).
 
 The protocols supported by the Verifiers are the subject of numerous documentation in the repositories of the DIF and in those of the SSI ecosystems. In our case we opted for the use of Verifiable Presentation Request (w3C draft) or SIOPv2.
@@ -254,8 +259,8 @@ The multi-criteria approach makes it possible to deal with complex use cases inv
 An example is that of a voting application that would like to whitelist only users who live in a specific city and who are, for example, under 25 years old.
 
 
-On-chain integration : Anonymous whitelist
--------------------------------------------
+On-chain integration with anonymous whitelist
+----------------------------------------------
 
 In an SSI environment, the user carries their data in their wallet. At each onboarding he is able to present his VCs. 
 Data wallets (SSI wallets) have here a very big advantage over crypto wallets which can only hope that another dApp has previously created an on-chain record to mark an address as verified.
@@ -275,5 +280,6 @@ A whitelist is managed by a smart contract which allows to create whitelists ada
 It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
 
 The verifier pays the transaction fees and the verifier's DID must be known to the wmart contract to validate the forwarding address.
+
 
 
