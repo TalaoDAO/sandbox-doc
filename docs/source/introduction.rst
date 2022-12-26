@@ -66,8 +66,11 @@ therefore all the components offered by Altme are available in open source and i
 * **Altme Web3 Issuer** : A trusted issuer of Web3 credentials 
 
 
+Altme Wallet
+------------
+
 Altme Wallet is an universal wallet
------------------------------------
+***********************************
 
 The Altme wallet that we offer is a so-called "Universal" wallet. Altme is a user friendly SSI wallet with crypto features.
 
@@ -94,7 +97,7 @@ Altme Wallet is available on `Apple Store <https://apps.apple.com/fr/app/altme/i
 
 
 Altme Wallet is a user friendly SSI wallet ready for production use
---------------------------------------------------------------------
+*******************************************************************
 
 Everyone knows that SSI wallets are boring and their interface is not very well done. 
 The fact is that there are few SSI wallets available on the market and many SSI wallets are only Proof of Concept with relatively few real users.
@@ -106,6 +109,15 @@ Moreover, the interface is improved every day with feedback from many users of W
 
 The UX and UI of the Altme Wallet are among the **best on the market**.
 
+Altme Wallet credentials and keys backup and recovery
+******************************************************
+
+Safeguarding verifiable cerdentials and private keys associated with cypto accounts and the key to one's identity is fundamental.
+
+With regard to private keys, it is possible to save your **passphrase of 12 keywords in BIP39 format** (https://iancoleman.io/bip39/) which contains both the private key of your identity and those of your crypto accounts. 
+As specified above, the derivation of the blockchain and identity keys is different to avoid any possible correlation.
+
+With regard to the saving of verifiable credentials, it is possible to save them encrypted on the medium of your choice with, to simplify, the same passphrase of 12 keywords.
 
 Altme Saas is a low code solution to build Issuers and Verifiers in minutes
 -----------------------------------------------------------------------------
@@ -139,7 +151,7 @@ Many credentials are today available specifically for Web3 use cases :
 * ID card, Driver License, Passport (KYC)
 * Unique identifier for DAO voting
 * Email proof and Phone proof for simple authentication
-* Blockchain account proof of ownership for blockchain authentication
+* Veriable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
 
