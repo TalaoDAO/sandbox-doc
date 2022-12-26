@@ -281,7 +281,6 @@ For this reason in particular, it seems to us that the Verifier must remain an e
 The multi-criteria approach makes it possible to deal with complex use cases involving several criteria. 
 An example is that of a voting application that would like to whitelist only users who live in a specific city and who are, for example, under 25 years old.
 
-
 On-chain integration with anonymous whitelist
 ----------------------------------------------
 
@@ -303,6 +302,35 @@ A whitelist is managed by a smart contract which allows to create whitelists ada
 It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
 
 The verifier pays the transaction fees and the verifier's DID must be known to the wmart contract to validate the forwarding address.
+
+Crypto and SSI features
+-------------------------
+
+Crypto: 
+
+* Tezos blockchain, Mainnet and Ghostnet (Ed25519 keys) https://tezos.com/
+* Ethereum Mainnet https://ethereum.foundation/
+* Polygon Mainnet https://polygon.technology/
+* Fantom Mainet https://fantom.foundation/
+* Binance https://www.binance.com/en/bnb
+
+* Etherscan API and Infura nodes for EVM.  
+* TzKT indexer for Tezos.  
+* TezID for whitelitng on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
+* Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
+* WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
+
+
+SSI:
+
+* VP/VP in JSON-LD and JWT format
+* RSA, Ed25519, secp256k& and P-256 keys
+* SiopV2, OIDC4VP, OIDC: different OpenID SSI and standard flows for verification and issuance
+* Verifiable Presentation Request with QueryByExample and DID Auth  https://w3c-ccg.github.io/vp-request-spec/
+* Credential manifest with wallet rendering https://identity.foundation/wallet-rendering/
+* Support of did:key, did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web  
+* Wallet embedded resolver for implicit DID method, did:tz and did:web
+* TALAO, EBSI registries for issuers and verifiers.
 
 
 
