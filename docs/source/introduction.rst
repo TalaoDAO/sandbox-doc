@@ -102,7 +102,7 @@ The particularity of Altme is that it is also a crypto wallet and that the marke
 Altme's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  Moreover, the interface is improved every day with feedback from many users of web3 applications currently in production.
 
 
-Altme Sass is a low code solution to build Issuers and Verifiers in minutes
+Altme Saas is a low code solution to build Issuers and Verifiers in minutes
 -----------------------------------------------------------------------------
 
 Altme Saas is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
@@ -111,7 +111,7 @@ It makes it possible to verify qualified attributes of a Decentralized Identity 
 
 To use Altme Saas, you don't need to learn Verifiable Credentials standards, DIDs signature or how to work with a complex SDK. Instead, Altme uses OpenID, WalletConnect or Beacon as a simple, familiar method to integrate issuers and verifiers in your Web3, Web2 or CMS application with no code or low code.
 
-Access is free : https://talao.co
+The Saas platform is in Beta, access is free : https://talao.co
 
 
 Altme Web3 Issuer is a SSI issuer for web3 use cases
