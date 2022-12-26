@@ -53,7 +53,7 @@ SSI is different from a solution such as Google Connect or FranceConnect because
 
 
 Altme solution is made up of 3 offers
----------------------------------------
+-------------------------------------
 
 Altme offers 3 components to implement SSI in Web3 applications. On the other hand, it is important to appreciate that the strength of the SSI model is interoperability and 
 therefore all the components offered by Altme are available in open source and implement protocols and standards recognized by the W3C and shared by the community.
@@ -63,7 +63,7 @@ therefore all the components offered by Altme are available in open source and i
 * Altme Web3 Issuer : A trusted issuer of Web3 credentials 
 
 
-Altme Wallet is an universal Wallet
+Altme Wallet is an universal wallet
 -----------------------------------
 
 The Altme wallet that we offer is a so-called "Universal" wallet. Altme is a user friendly SSI wallet with crypto features.
@@ -93,13 +93,13 @@ Altme Wallet is available on `Apple Store <https://apps.apple.com/fr/app/altme/i
 Altme Wallet is a user friendly SSI wallet ready for production use
 --------------------------------------------------------------------
 
-Everyone knows that SSI wallets are boring and their interface is not very well done.
-
+Everyone knows that SSI wallets are boring and their interface is not very well done. 
 The fact is that there are few SSI wallets available on the market and many SSI wallets are only Proof of Concept with relatively few real users.
 
 The particularity of Altme is that it is also a crypto wallet and that the market and the level of user experience of crypto wallets is extremely high and has been for several years.
 
-Altme's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  Moreover, the interface is improved every day with feedback from many users of web3 applications currently in production.
+Altme's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  
+Moreover, the interface is improved every day with feedback from many users of Web3 applications currently in production.
 
 
 Altme Saas is a low code solution to build Issuers and Verifiers in minutes
@@ -117,15 +117,29 @@ The Saas platform is in Beta, access is free : https://talao.co
 Altme Web3 Issuer is a SSI issuer for web3 use cases
 ------------------------------------------------------
 
-This issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported
+Altme Issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported . 
+Alltme Issuer produce verifiable credentials in the format of Self Sovereign Identity for users of Crypto games, NFT Marketplaces, DeFi and Metaverse.
+Verifiable Credentials are off-chain data container, for privacy protection and GDPR compliance they are never published on-chain as NFT or SBTs.
+Many credentials are today available for Web3 applications : 
 
-We issue verifiable credentials in the format of Self Sovereign Identity for users of Crypto games, NFT Marketplaces, DeFi and Metaverse
+* Loyalty cards for games
+* Custom Gamer Pass and DeFi pass
+* Discord or Twitter account proof
+* Over 13 proof
+* Over 18 proof
+* Age range
+* Nationality proof
+* ID card, Driver License, Passport (KYC)
+* Unique identifier for DAO voting
+* Email proof and Phone proof for simple authentication
+* Blockchain account proof of ownership for blockchain authentication
 
-We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data can be viewed in the wallet
 
-Altme Issuer DID is did:web:app.altme.io:issuer
+We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
 
-Altme Issuer DID document is available on the DIF Universal Resolver : https://dev.uniresolver.io/ 
+Altme Issuer DID is **did:web:app.altme.io:issuer**
+
+Altme Issuer DID Document is available through the DIF Universal Resolver : https://dev.uniresolver.io/ and see below its content.
  
 
 .. code-block:: javascript
@@ -169,7 +183,7 @@ Altme Issuer DID document is available on the DIF Universal Resolver : https://d
 
 
 
-Decentralized IDentifier (DID) of Altme Wallet
+Decentralized IDentifiers (DIDs) of Altme Wallet
 ------------------------------------------------
 
 We have chosen to use the DID method did:key for practical reasons.
@@ -180,7 +194,7 @@ which could leave the opportunity to confuse the private key of an identity with
 
 A description of the did key method is available here : https://w3c-ccg.github.io/did-method-key  
 
-Altme Wallet can also support : did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web with Ed25519, Secp256k1, P-256 and RSA keys.
+Altme Wallet can also support : **did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web** with Ed25519, Secp256k1, P-256 and RSA keys.
 
 
 DID private key vs blockchain address private key
@@ -190,7 +204,7 @@ It seems to us for example extremely dangerous to use by simplification the same
 The obvious risk is to eventually have an immediate correlation between an identity document issued for a user DID and blockchain transactions. 
 
 For this, the choice we have made is to derive the private key(s) of our identity with a specific path different from that used for the crypto wallets.
-Currently we use the derivation m/44'/5467'/0'/0 for the generation of identity keys which avoids any collision with that used for Tezos wallets m/44'/1729'/0'/0 or Metamask m/44'/60'/0'/0 while keeping the same passphrase.
+Currently we use the derivation **m/44'/5467'/0'/0** for the generation of identity keys which avoids any collision with that used for Tezos wallets m/44'/1729'/0'/0 or Metamask m/44'/60'/0'/0 while keeping the same passphrase.
 
 
 The proof of blockchain address ownership
@@ -257,65 +271,49 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 Give an Identity to your crypto wallet
 --------------------------------------
 
-This is a service offers by Atme, free and available here :  https://app.altme.io/wallet-link
+This is a service offers by Altme, free and available here :  https://app.altme.io/wallet-link
 
 Current crypto wallets like Metamask, Trust wallet, Ledger or Temple wallet for Tezos do not carry personal data as verifiable credentials. 
 We think that they will do it in a more or less close future to adapt to regulations but for the moment 
 it is therefore extremely difficult to know the user who is carrying out a transaction. In some cases this can be a problem.
 
-The use of processes such as the KYC carried out by the site of the Web3 platform responds badly to this problem for at least two reasons:
+The use of processes such as the KYC carried out by the site of the Web3 platform responds badly to this problem for at least those reasons:
 
-* it reveals all of a user's personal data to the operator and some of it is unnecessary for the strict need of the application.
+* it reveals all of a user's personal data to the Web3 operator and some of it is unnecessary for the strict need of the application.
 * it is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
+* KYC is the only proof that it is possible to produce even though the identity of a person can be proven by a large number of documents (diplomas, employer certificate, health card, proof of address, etc.)
 
-The use of an SSI wallket easily solves this problem because it allows the user to transfer only the minimum information, necessary and moreover it makes the link between the DID and the transaction addresses (see above ). 
-However, to take advantage of these advantages with a crypto wallet, it is necessary to associate your crypto wallet with Altme.
+The use of an SSI wallet easily solves this problem because it allows the user to transfer only the minimum information, necessary and moreover it makes the link between the DID and the transaction addresses (see above ). 
+However, to take advantage of these advantages with a crypto wallet, it is necessary to associate your prefered crypto wallet with Altme Wallet.
 
-The association of a crypto wallet to Altme can be done in 2 ways:
+The association of a crypto wallet to Altme Wallet can be done in 2 ways:
 
 * By transferring the private key (or passphrase) from the crypto wallet to the Altme wallet. The crypto account is then available on Altme as if it had been created by Altme.
-* By creating in Altme proof of ownership of the crypto private key without even revealing it. This is possible using the Beacon Tezos or WalletConnect EVM protocols.
+* By creating in Altme a proof of blockchain account ownership without revealing the private key. This is possible using the Beacon Tezos or WalletConnect EVM protocols.
 
-The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
+The Altme Wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
+
+Go to  https://app.altme.io/wallet-link to test this service with your prefered crypto wallet and Altme Wallet in support for your identity and personal documents.
 
 
-Web3 Verifiers
---------------
 
-The Verifier is the module of an application or an application whose purpose is to control the accuracy and origin of Verifiable Credentials / Verifiable presentations of a user (Holder).
 
-The protocols supported by the Verifiers are the subject of numerous documentation in the repositories of the DIF and in those of the SSI ecosystems. In our case we opted for the use of Verifiable Presentation Request (w3C draft) or SIOPv2.
-The simplest use cases of a Verifier consist in validating that a user has the necessary credentials (Over 18 or Over 13 to access a marketplace, KYC/AML to access a DEX, etc).
+Web3 verifiers and on-chain integration with anonymous whitelist
+----------------------------------------------------------------
 
-It is therefore relatively basic information that is generally called a "verification result" and which is then transferred to the dApp. 
-This information contains very little personal data of the user but on the other hand it is possible that the Verifier received and stored to carry out its process a greater number of information. 
+Verifier is the module of an application or application whose purpose is to verify the correctness and origin of a user's verifiable identifiers/verifiable presentations.
 
-For this reason in particular, it seems to us that the Verifier must remain an external and independent service.
+In an SSI environment for Web2, the user carries their data in their wallet. At each onboarding he is able to present his certificates.
 
-The multi-criteria approach makes it possible to deal with complex use cases involving several criteria. 
-An example is that of a voting application that would like to whitelist only users who live in a specific city and who are, for example, under 25 years old.
+In a Web3 environment, the question of data persistence arises for asynchronous actions such as an NFT drop or an ICO conditioned by specific conditions (age, location, and). 
+Verifiable credentials are inherently off-chain because they protect user data and regulations in many countries now include the right to be forgotten. 
+It is therefore not possible to have a copy of a chained verifiable credential. In this case it is necessary to keep on-chain a list of addresses that have presented themselves beforehand, sometimes several weeks before the action.
 
-On-chain integration with anonymous whitelist
-----------------------------------------------
+The choice we have made is to use "anonymous" whitelists created at application startup. The whitelists are generated by a smart contract which
+makes it possible to create whitelists adapted to each use case and then to add the blockchain addresses of the users of the service.
+It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application.
 
-In an SSI environment, the user carries their data in their wallet. At each onboarding he is able to present his VCs. 
-Data wallets (SSI wallets) have here a very big advantage over crypto wallets which can only hope that another dApp has previously created an on-chain record to mark an address as verified.
-
-But even with data wallet, the question of data persistence arises for asynchronous actions such as that of an NFT drop or an ICO conditioned by a minimum subscription.
-In this case it is necessary to keep a list of addresses that have presented themselves beforehand, sometimes several weeks before the action.
-
-For a hybrid application that has a base on a server, the implementation is simple. For a dApp you need a storage alternative.
-
-This is where blockchain comes into play in the interaction of SSI and web3.
-
-VCs are inherently off-chain as they protect user data and regulations in many countries now include the right to be forgotten.
-It is therefore not possible to have a copy of a chained VC. It seems to us that even a "verification result" is already personal data that should not be exposed on chain.
-The choice we have made is to use "anonymous" whitelists created at the start of the application.
-
-A whitelist is managed by a smart contract which allows to create whitelists adapted to each use case and then to add the blockchain addresses of the users of the service.
-It is created at the same time as the verifier. It must be able to be consulted by a smart contract of the application. Checking it updates the whitelist.
-
-The verifier pays the transaction fees and the verifier's DID must be known to the wmart contract to validate the forwarding address.
+The verifier pays the transaction fee and the DID of the verifier must be known to the wmart contract to validate the forwarding address.
 
 Crypto and SSI features
 -------------------------
