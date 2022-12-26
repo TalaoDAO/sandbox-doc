@@ -27,7 +27,7 @@ users privacy.
 
 In practice SSI is an international standard defined by the World Wide Web Consortium (W3C) https://www.w3.org/ with two main documents :
 
-* **Verifiable credentials** data model https://www.w3.org/TR/vc-data-model/ : an off-chain data container to gather personal data.
+* **Verifiable credentials** data model https://www.w3.org/TR/vc-data-model/ : an **off-chain data container** to gather personal data.
 * **Decentralized Identifiers** https://www.w3.org/TR/did-core/ : a new generation of identifiers (DID) whose possession can be proven. 
 
 As opposed to client-server architectures which are carried by 2 actors, SSI implements 3 actors : Issuers, Verifiers and Holders.
@@ -60,15 +60,17 @@ The Self Sovereign Identity model has been integrated into several ecosystems ar
 for the European Blockchain **EBSI** (https://ec.europa.eu/digital-building-blocks/wikis/display/EBSI/Home ) which carries a large number of cross-border use cases in education, employment, health, etc.
 
 
-Altme solution is made up of 3 offers
--------------------------------------
+Altme solution suite is made up of 3 components
+-----------------------------------------------
 
 Altme offers 3 components to implement SSI in Web3 applications. On the other hand, it is important to appreciate that the strength of the SSI model is interoperability and 
-therefore all the components offered by Altme are available in open source and implement protocols and standards recognized by the W3C and shared by the community.
+therefore all the components offered by Altme are available in **open source and implement protocols and standards recognized by the W3C and shared by the community**.
 
-* **Altme Wallet** : The user friendly SSI wallet for web3 applications
+* **Altme Wallet** : The user friendly SSI mobile wallet for web3 applications
 * **Altme Saas** : The next generation platform to build Issuers and Verifiers in minutes
 * **Altme Web3 Issuer** : A trusted issuer of Web3 credentials 
+
+The open source repositorory is available there : https://github.com/TalaoDAO . 
 
 
 Altme Wallet
@@ -77,7 +79,8 @@ Altme Wallet
 Altme Wallet is an universal wallet
 ***********************************
 
-The Altme wallet that we offer is a so-called "Universal" wallet. Altme is a user friendly SSI wallet with crypto features.
+The Altme Wallet that we offer is a so-called "Universal" wallet. Altme is a user friendly SSI wallet with crypto features. 
+Altme Wallet is a mobile wallet developped in Flutter/Dart for IOS and Android.
 
 It is universal in that it allows you to manage in the same mobile application both your cryptos, NFT and your identity data in a decentralized way.
 
@@ -112,7 +115,7 @@ The particularity of Altme Wallet is that it is also a crypto wallet and that th
 Altme Wallet's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  
 Moreover, the interface is improved every day with feedback from many users of Web3 applications currently in production. 
 
-The UX and UI of the Altme Wallet are among the **bests on the market**.
+In order to allow Issuers to provide the best UX and UI, the Altme Wallet implement the DIF Wallet Rendering standards  https://identity.foundation/wallet-rendering/.
 
 Altme Wallet credentials and keys backup and recovery
 ******************************************************
@@ -240,7 +243,7 @@ For this very specific verifiable credential we use the DID method **did:pkh** p
 crypto addresses : cf https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md  
 
 
-Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet for Tezos account :
+Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet for a Tezos account :
 
 .. code-block:: javascript
 
@@ -254,7 +257,7 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 					"@version": 1.1,
 					"@protected": true,
 					"id": "@id",
-                    "type": "@type",
+                              "type": "@type",
 					"schema" : "https://schema.org/",
 					"accountName" :  "schema:identifier",
       				"associatedAddress" : "schema:account",
@@ -275,29 +278,31 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
    	],
 	"id" : "urn:uuid:4cd16825-5872-43e5-8a56-7a2c5d5cb2f7",
 	"type": [
-        		"VerifiableCredential",
-           		"TezosAssociatedAddress"
+        	"VerifiableCredential",
+           	"TezosAssociatedAddress"
 	],
 	"issuer" : "did:pkh:tz:tz1YtKsJMx5FqhULTDzNxs9r9QYHBGsmz58o",
 	"credentialSubject" : {
-       		"id" : "did:key:zQ3sheeB1CHmCzYWxW13opsYv9AiS4atUAwfwzFoM2gRpifPb",
-       		"type" : "TezosAssociatedAddress",
+       	"id" : "did:key:zQ3sheeB1CHmCzYWxW13opsYv9AiS4atUAwfwzFoM2gRpifPb",
+       	"type" : "TezosAssociatedAddress",
           	"associatedAddress" : "tz1YtKsJMx5FqhULTDzNxs9r9QYHBGsmz58o",
-		    "accountName" : "Account 1",
-			"issuedBy" : {"name" : "My wallet"}
+		"accountName" : "Account 1",
+		"issuedBy" : {
+                  "name" : "My wallet"
+            }
 	}
    }
 
 Give an Identity to your crypto wallet
 --------------------------------------
 
-This is a service offered by Altme, free and available here :  https://app.altme.io/wallet-link
+This is a service offered by Altme, free and available here :  https://app.altme.io/wallet-link .
 
 Current crypto wallets like Metamask, Trust wallet, Ledger or Temple wallet for Tezos do not carry personal data as verifiable credentials. 
 We think that they will do it in a more or less close future to adapt to regulations but for the moment 
 it is therefore extremely difficult to know the user who is carrying out a transaction. Anonymity is an important benefit of blockchain technology but in some cases this can be a problem.
 
-The use of processes such as the KYC carried out by the site of the Web3 platform responds badly to this problem for several reasons:
+The use of processes such as the **KYC carried out by the site of the Web3 platform responds badly** to this problem for several reasons:
 
 * It reveals all of a user's personal data to the Web3 operator and some of it is unnecessary for the strict need of the application.
 * It is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
@@ -307,18 +312,21 @@ The use of processes such as the KYC carried out by the site of the Web3 platfor
 The use of Altme Wallet easily solves these problems because it allows the user to transfer only the minimum, necessary information, to choose the attribute(s) 
 of his identity from different documents and then to associate them with an address group. possibly on different blockchains.
 
-However, to take advantage of these advantages with a crypto wallet, it is necessary to associate your prefered crypto wallet with Altme Wallet.
+However, to take advantage of SSI features with a crypto wallet, it is necessary to associate your prefered crypto wallet with Altme Wallet.
 
 The association of a crypto wallet to Altme Wallet can be done in 2 different ways:
 
 * By transferring the private key (or passphrase) from the crypto wallet to the Altme Wallet. The crypto account is then available on Altme Wallet as if it had been created by Altme Wallet.
-* By creating in Altme Wallet a proof of blockchain account ownership without revealing the private key of the crypto wallet. This is possible using the Beacon Tezos or WalletConnect EVM protocols to authentiocate with the crypto wallet.
+* By creating in Altme Wallet a proof of blockchain account ownership **without revealing the private key of the crypto wallet**. This is possible using the Beacon Tezos or WalletConnect EVM protocols to authenticate with the crypto wallet.
 
 The Altme Wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
 
+Crypto wallets supported are (none exhaustive list)  : 
+
+* Tezos : **Temple mobile, Temple Web Extension, Air Gap, Kukai, Digital Art Autonomy, Umami**
+* EVM : **Metamask, Ledger Live, Trust wallet**
+  
 Go to  https://app.altme.io/wallet-link to test the possibility to use Altme Wallet with your prefered crypto wallet without revealing the crypto wallet private key.
-
-
 
 
 Web3 verifiers and on-chain integration with anonymous whitelist
