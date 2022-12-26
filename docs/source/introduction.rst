@@ -178,6 +178,7 @@ The obvious risk is to eventually have an immediate correlation between an ident
 For this, the choice we have made is to derive the private key(s) of our identity with a specific path different from that used for the crypto wallets.
 Currently we use the derivation m/44'/5467'/0'/0 for the generation of identity keys which avoids any collision with that used for Tezos wallets m/44'/1729'/0'/0 or Metamask m/44'/60'/0'/0 while keeping the same passphrase.
 
+
 The proof of blockchain address ownership
 -----------------------------------------
 
@@ -188,7 +189,8 @@ of the transactions while guaranteeing the maximum protection of the user's iden
 
 If it is desired to verify that the owner of an address "A" is over 18 years old, the verifier will receive a VC/VP proving age "over 18" and that specific VC which proves that the identity subject of the Over18 (vc.credentialSubject.id) is indeed the owner of the address "A".
 
-For this very specific VC we use the DID method did:pkh perfectly fitted for DID based on crypto address : https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md
+For this very specific VC we use the DID method did:pkh perfectly fitted for DID based on 
+crypto address https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md  
 
 Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet for Tezos account.
 
@@ -258,7 +260,7 @@ However, to take advantage of these advantages with a crypto wallet, it is neces
 The association of a crypto wallet to Altme can be done in 2 ways:
 
 * By transferring the private key (or passphrase) from the crypto wallet to the Altme wallet. The crypto account is then available on Altme as if it had been created by Altme.
-* By creating in Altme proof of ownership of the crypto private key without even revealing it. This is possible using the Beacon Tezos or WalletConnect EVM protocols and the service offered by the site https:/app.altme.io/wallet-link
+* By creating in Altme proof of ownership of the crypto private key without even revealing it. This is possible using the Beacon Tezos or WalletConnect EVM protocols and the service offered by the site  https://app.altme.io/wallet-link 
 
 The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
 
