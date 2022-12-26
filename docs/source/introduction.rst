@@ -260,7 +260,7 @@ However, to take advantage of these advantages with a crypto wallet, it is neces
 The association of a crypto wallet to Altme can be done in 2 ways:
 
 * By transferring the private key (or passphrase) from the crypto wallet to the Altme wallet. The crypto account is then available on Altme as if it had been created by Altme.
-* By creating in Altme proof of ownership of the crypto private key without even revealing it. This is possible using the Beacon Tezos or WalletConnect EVM protocols and the service offered by the site  https://app.altme.io/wallet-link 
+* By creating in Altme proof of ownership of the crypto private key without even revealing it. This is possible using the Beacon Tezos or WalletConnect EVM protocols.
 
 The Altme wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
 
