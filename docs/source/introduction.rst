@@ -44,15 +44,20 @@ It is essential that the transmission of the verifiable digital evidence between
 **Holders** (or users) : they usually have a corresponding SSI app named wallet on their mobile device or desktop, which stores SSI private keys and the digital verifiable credentials. 
 It is also possible to use a cloud agent. Holders can request all verifiable digital proofs from the corresponding issuers and store them in their own SSI wallet.
 
-The use of the blockhain to support SSI is not mandatory and it is necessary to understand the relationship between the SSI and the Blockchain.
-Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is itself integrated into the digital document itself, so it does not require a transaction on a blockchain.
-On the other hand, the latter brings significant added value as a decentralized source of trust, in particular to make the link between a signature and the real identity of the issuers or verifiers.
+The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
+Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
+On the other hand, the latter brings significant added value as a decentralized source of trust, in particular to make the link between the DID of an Issuer or a Verifier
+and their cryptographic materials and their real identity without accessing a centralized Certificate Authorithy. 
 
-An SSI wallet is different from a solution such as the Apple wallet because the user is the sole owner of his wallet and he can add new certificates to it without asking for authorization from a third party.
-SSI is different from a solution such as Google Connect or FranceConnect because the user carries his data on him and is able to authenticate with a third party without intermediation.
+For a natural person the added value of SSI is huge and it is a game changer compared to other "identity" solutions. An SSI wallet is different from a solution 
+such as the Apple wallet because the user is the sole owner of his wallet and so he can add new credentials to it without asking for authorization from a third party.
+SSI is also different from a solution such as Google Connect or FranceConnect because the user carries his data on him and is able to authenticate with a third party without intermediation.
+
+The verifiable credential model of SSI is also a huge improvment of the X509 certificate format as authentication materials and identification attributes
+are now splited into 2 documents (DID Document and verifiable credentials) allowing simple key rotation and multiple asociations for long term use.
 
 The Self Sovereign Identity model has been integrated into several ecosystems around the world and in particular in Europe with the deployment of the infrastructure
-for the European Blockchain **EBSI** (https://ec.europa.eu/digital-building-blocks/wikis/ display/EBSI/Home ) which carries a large number of cross-border use cases in education, employment, health, etc.
+for the European Blockchain **EBSI** (https://ec.europa.eu/digital-building-blocks/wikis/display/EBSI/Home ) which carries a large number of cross-border use cases in education, employment, health, etc.
 
 
 Altme solution is made up of 3 offers
@@ -107,7 +112,7 @@ The particularity of Altme Wallet is that it is also a crypto wallet and that th
 Altme Wallet's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  
 Moreover, the interface is improved every day with feedback from many users of Web3 applications currently in production. 
 
-The UX and UI of the Altme Wallet are among the **best on the market**.
+The UX and UI of the Altme Wallet are among the **bests on the market**.
 
 Altme Wallet credentials and keys backup and recovery
 ******************************************************
@@ -347,7 +352,7 @@ Crypto and SSI features
 * Binance https://www.binance.com/en/bnb
 * Etherscan API and Infura nodes for EVM.  
 * TzKT indexer for Tezos.  
-* TezID for whitelitng on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
+* TezID for whitelisting on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
 * Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
 * WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
 
