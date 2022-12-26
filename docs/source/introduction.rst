@@ -90,6 +90,18 @@ This also implies that a universal wallet supports both connection protocols wit
 Altme Wallet is available on `Apple Store <https://apps.apple.com/fr/app/altme/id1633216869>`_ and `Google Play <https://play.google.com/store/apps/details?id=co.altme.alt.me.altme>`_  .
 
 
+Altme Wallet is a user friendly SSI wallet ready for production use
+--------------------------------------------------------------------
+
+Everyone knows that SSI wallets are boring and their interface is not very well done.
+
+The fact is that there are few SSI wallets available on the market and many SSI wallets are only Proof of Concept with relatively few real users.
+
+The particularity of Altme is that it is also a crypto wallet and that the market and the level of user experience of crypto wallets is extremely high and has been for several years.
+
+Altme's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  Moreover, the interface is improved every day with feedback from many users of web3 applications currently in production.
+
+
 Altme Sass is a low code solution to build Issuers and Verifiers in minutes
 -----------------------------------------------------------------------------
 
@@ -105,14 +117,16 @@ Access is free : https://talao.co
 Altme Web3 Issuer is a SSI issuer for web3 use cases
 ------------------------------------------------------
 
+This issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported
+
 We issue verifiable credentials in the format of Self Sovereign Identity for users of Crypto games, NFT Marketplaces, DeFi and Metaverse
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data can be viewed in the wallet
 
 Altme Issuer DID is did:web:app.altme.io:issuer
 
-Altme Issuer DID document : 
-
+Altme Issuer DID document is available on the DIF Universal Resolver : https://dev.uniresolver.io/ 
+ 
 
 .. code-block:: javascript
 
@@ -152,7 +166,7 @@ Altme Issuer DID document :
             ]
       }
 
-This issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported
+
 
 
 Decentralized IDentifier (DID) of Altme Wallet
@@ -182,7 +196,7 @@ Currently we use the derivation m/44'/5467'/0'/0 for the generation of identity 
 The proof of blockchain address ownership
 -----------------------------------------
 
-It is a verifiable credential which is issued by the crypto wallet itself and whose subject is the identity carried by the wallet. Once presented to a verifier, it is a credential that has the signature of the two private keys.
+It is a verifiable credential which is issued by the "crypto account" of the wallet itself and whose subject is the identity (DID) carried by the wallet. Once presented to a verifier, it is a credential that has the signature of the two private keys.
 
 From our point of view, this VC is one of the most important of the universal wallets because it makes it possible to establish in a peer to peer mode a link between the DID and the addresses
 of the transactions while guaranteeing the maximum protection of the user's identity.
@@ -313,7 +327,6 @@ Crypto:
 * Polygon Mainnet https://polygon.technology/
 * Fantom Mainet https://fantom.foundation/
 * Binance https://www.binance.com/en/bnb
-
 * Etherscan API and Infura nodes for EVM.  
 * TzKT indexer for Tezos.  
 * TezID for whitelitng on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
@@ -323,11 +336,12 @@ Crypto:
 
 SSI:
 
-* VP/VP in JSON-LD and JWT format
+* VC/VP in JSON-LD and JWT format
 * RSA, Ed25519, secp256k& and P-256 keys
 * SiopV2, OIDC4VP, OIDC: different OpenID SSI and standard flows for verification and issuance
 * Verifiable Presentation Request with QueryByExample and DID Auth  https://w3c-ccg.github.io/vp-request-spec/
 * Credential manifest with wallet rendering https://identity.foundation/wallet-rendering/
+* DIDKit from SpruceId https://www.spruceid.dev/didkit/didkit
 * Support of did:key, did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web  
 * Wallet embedded resolver for implicit DID method, did:tz and did:web
 * TALAO, EBSI registries for issuers and verifiers.
