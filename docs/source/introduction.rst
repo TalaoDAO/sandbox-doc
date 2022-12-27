@@ -115,9 +115,9 @@ The fact is that there are few SSI wallets available on the market and many SSI 
 The particularity of Altme Wallet is that it is also a crypto wallet and that the market and the level of user experience of crypto wallets is extremely high and has been for several years.
 
 Altme Wallet's design teams have therefore set out to create a wallet whose user experience and interface are as efficient as the best crypto wallets on the market.  
-Moreover, the interface is improved every day with feedback from many users of Web3 applications currently in production. 
+Moreover, the interface is improved every day with feedback from many users of SSI-Web3 applications currently in production. 
 
-In order to allow Issuers to provide the best UX and UI, the Altme Wallet implement the DIF Wallet Rendering standards  https://identity.foundation/wallet-rendering/.
+In order to allow Issuers to provide the best UX and UI, the Altme Wallet implement the **DIF Wallet Rendering standards**  https://identity.foundation/wallet-rendering/.
 
 
 
@@ -138,14 +138,21 @@ With regard to the saving of verifiable credentials, it is possible to save them
 Altme Saas is a low code solution to build Issuers and Verifiers in minutes
 -----------------------------------------------------------------------------
 
-Altme Saas is a low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
+Altme Saas is a **next-generation platform** to integrate Decentralized Identity solutions in an application.
 
-It makes it possible to verify qualified attributes of a Decentralized Identity or issue for instance a Pass in minutes without diving in complex Self Sovereign Identity concepts and tools.
+Altme Saas is a no code or low code platform to generate issuers and verifiers. The platform is an open source project : https://github.com/TalaoDAO/sandbox
 
-To use Altme Saas, you don't need to learn Verifiable Credentials standards, DIDs signature or how to work with a complex SDK. Instead, Altme uses OpenID, WalletConnect or Beacon as a simple, familiar method to integrate issuers and verifiers in your Web3, Web2 or CMS application with no code or low code.
+To use Altme Saas, you don't need to learn Verifiable Credentials standards, DIDs signature or how to work with a complex an unstable SDK.
+
+Instead, Altme Saas uses OpenID for Web2 aplications and dapp-to-wallet protocols for Web3 applications as a simple and familiar method to integrate issuers and verifiers.
+All the complexity of the protocols and standards used by SSI wallets are managed by the platform. 
+You can focus on your application and leave Altme Saas manages authentication, identification or credential issuance.
+
+For web2 applications Altme Saas is compliant with **NodejS, Python, Ruby, Go, C, PHP, Java, Wordpress, Webflow...**.
+
+For web3 applications Altme Saas supports **WalletConnect and Tezos Beacon**.
 
 The Altme Saas platform is in Beta, access is free : https://talao.co
-
 
 Altme Web3 Issuer is a SSI issuer for web3 use cases
 ------------------------------------------------------
@@ -252,7 +259,8 @@ The Altme Wallet can therefore carry the verifiable credentials of the user of a
 Crypto wallets supported are (none exhaustive list)  : 
 
 * Tezos : **Temple mobile, Temple Web Extension, Air Gap, Kukai, Digital Art Autonomy, Umami**
-* EVM : **Metamask, Ledger Live, Trust wallet**
+* EVM : **Metamask mobile, Metamask web extension, Ledger Live, Ledger, Trezor, Trust Wallet, Coinbase wallet, My Ether Wallet, Rainbow, Argent Wallet**
+
   
 Go to  https://app.altme.io/wallet-link to test the possibility to use Altme Wallet with your prefered crypto wallet without revealing the crypto wallet private key.
 
