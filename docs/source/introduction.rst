@@ -135,8 +135,11 @@ As specified above, the derivation of the blockchain and identity keys is differ
 
 With regard to the saving of verifiable credentials, it is possible to save them encrypted on the medium of your choice with, to simplify, the same passphrase of 12 keywords.
 
+Altme Saas
+-----------
+
 Altme Saas is a low code solution to build Issuers and Verifiers in minutes
------------------------------------------------------------------------------
+****************************************************************************
 
 Altme Saas is a **next-generation platform** to integrate Decentralized Identity solutions in an application.
 
@@ -152,10 +155,20 @@ For web2 applications Altme Saas is compliant with **NodejS, Python, Ruby, Go, C
 
 For web3 applications Altme Saas supports **WalletConnect and Tezos Beacon**.
 
+Documentation :
+
+* Go to https://sandbox-doc.readthedocs.io/en/latest/getting_started.html for a quick startup
+* Go to https://sandbox-doc.readthedocs.io/en/latest/code_openid.html for an OpenID integration 
+
+
 The Altme Saas platform is in Beta, access is free : https://talao.co
 
+
+Altme Web3 issuer
+-----------------
+
 Altme Web3 Issuer is a SSI issuer for web3 use cases
-------------------------------------------------------
+*****************************************************
 
 Altme Web3 Issuer supports more than 20 credentials see : https://talao.co//sandbox/saas4ssi/credential_supported . 
 
@@ -181,6 +194,25 @@ Many credentials are today available specifically for Web3 use cases :
 .. image:: voucher_design.png
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
+
+
+Altme Web3 Issuer partners for identification
+**********************************************
+
+Identification is a complex activity. In order to guarantee the best level of quality, Altme has selected 2 recognized companies for the production of basic data:
+
+Yoti: https://www.yoti.com/: The partnership we have with Yoti concerns its activity in artificial intelligence and in particular the ability
+to assess the age of a user based on photos of identify. This approach has the advantage of allowing a rapid evaluation with a margin of error of 
+less than 2 years in 90% of cases. Using an AI helps to minimize friction with Web3 users who are not inclined to present their ID card for further
+identification. Based on Yoti's age rating, Altme is able to sign proof of age +13, +18 and age range.
+
+Passbase: https://passbase.com: The partnership with Passbase concerns its identification activity with 3D liveness test and authentication of documents
+(driver's license, identity card or passport). Based on the information provided by Passbase Altme is able to sign credentials with the bare minimum of 
+data: proof of nationality, residence, birth date, sex, age and of course the standard DeFI KYC and AML. A unique identification number for voting in DAOs is also available.
+
+
+Altme Web3 Issuer DID
+**********************
 
 Altme Issuer DID is **did:web:app.altme.io:issuer**
 
@@ -226,7 +258,11 @@ Altme Issuer DID Document is available through the DIF Universal Resolver : http
       }
 
 
+Altme used some other DIDs now deprecated
 
+* Tezos (did:tz) : did:tz:tz1NyjrTUNxDpPaqNZ84ipGELAcTWYg6s5Du
+* DNS (did:web) : did:web:talao.co
+* Ethereum (did:ethr) : did:ethr:0x61fb76ff95f11bdbcd94b45b838f95c1c7307dbd
 
 Give an Identity to your crypto wallet
 --------------------------------------
@@ -378,19 +414,6 @@ The verifier pays the transaction fee and the DID of the verifier must be known 
 Features
 *********
 
-**Crypto**: 
-
-* Tezos blockchain, Mainnet and Ghostnet (Ed25519 keys) https://tezos.com/
-* Ethereum Mainnet https://ethereum.foundation/
-* Polygon Mainnet https://polygon.technology/
-* Fantom Mainet https://fantom.foundation/
-* Binance https://www.binance.com/en/bnb
-* Web3 provider Infura  
-* TzKT indexer for Tezos  
-* TezID for whitelisting on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
-* Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
-* WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
-
 
 **SSI**:
 
@@ -406,4 +429,17 @@ Features
 * Support of Issuers and Verifiers trusted registries
 
 
+
+**Crypto**: 
+
+* Tezos blockchain, Mainnet and Ghostnet (Ed25519 keys) https://tezos.com/
+* Ethereum Mainnet https://ethereum.foundation/
+* Polygon Mainnet https://polygon.technology/
+* Fantom Mainet https://fantom.foundation/
+* Binance https://www.binance.com/en/bnb
+* Web3 provider Infura  
+* TzKT indexer for Tezos  
+* TezID for whitelisting on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
+* Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
+* WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
 
