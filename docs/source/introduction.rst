@@ -69,7 +69,7 @@ therefore all the components offered by Altme are available in **open source and
 
 * **Altme Wallet** : The user friendly SSI mobile wallet for web3 applications
 * **Altme Saas** : The next generation platform to build Issuers and Verifiers in minutes
-* **Altme Web3 Issuer** : A trusted issuer of Web3 credentials 
+* **Altme Web3 Issuer** : A trusted issuer of Web3 verifiable credentials 
 
 The open source repositorory is available there : https://github.com/TalaoDAO . 
 
@@ -180,15 +180,16 @@ Many credentials are today available specifically for Web3 use cases :
 * Loyalty cards and vouchers for gaming platforms
 * Custom Gamer Pass and DeFi pass
 * Discord or Twitter account proof
-* Over 13 proof
-* Over 18 proof
+* Over 13 and Over 18 age proof
 * Age range
 * Nationality proof
-* ID card, Driver License, Passport (KYC)
+* Residency proof
+* AML check
+* ID card, Driver License, Passport as full KYC
 * Unique identifier for DAO voting
-* Email proof and Phone proof for simple authentication
-* Veriable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
-
+* Email proof and Phone proof for authentication
+* Verifiable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
+* Company pass
 
 
 .. image:: voucher_design.png
@@ -410,6 +411,17 @@ It is created at the same time as the verifier. It must be able to be consulted 
 Of course, the whitelist identifier must remain insignificant to avoid any correlation between a user's blockchain address and one or more attributes of his identity.
 
 The verifier pays the transaction fee and the DID of the verifier must be known to the smart contract to validate the forwarding address.
+
+
+Web3 verifiers and on-chain integration with Soulbound token (SBTs)
+********************************************************************
+
+This is an experimental feature currently in test on Tezos Ghostnet and Fantom Tesnet.
+
+An SBT is minted when a credential is issued for a specific. Smart contracts can then check the token and the user can see the token in his Altme Wallet and 
+other crypto wallets. 
+
+For obvious privacy reasons, no personal data are stored in the NFT. 
 
 Features
 *********

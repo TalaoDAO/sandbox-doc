@@ -1,5 +1,5 @@
-Overview
-========
+Altme Wallet : protocols overview
+=================================
 
 For the interaction of the wallet with Issuers and Verifier, which is a decisive function in the implementation of this type of solution, we have retained the specifications of the W3C Presentation Request as well as the Spruce protocol for the management of the QR Code on a HTTPS transport layer. This protocol has the advantage of being quick and easy to implement while providing most of the necessary functions. There are currently several very promising protocols that are being defined or even in production but these seemed to us too complex and ultimately unnecessary for the current use cases which remain simple.
 
@@ -8,7 +8,6 @@ This protocol is described by Spruce: https://github.com/spruceid/credible#suppo
 This protocol occurs when a user wishes to use his wallet to collect credentials or to present them to access resources. 
 
 In the following document we will noted the options added by Talao as "Talao build".
-
 
 
 Collecting a verifiable credential 
@@ -27,23 +26,9 @@ Wallet <-> Verifier(server) : A Verifiable Presentation (VP) is presented to the
 
 .. image:: verifier_cross_device.png
 
-Issuer and verifier registry 
-=============================
 
-
-Motivation
-----------
-
-The protocol of interaction between the wallet and an Issuer or a Verifier currently used by Credible is light, simple and quick to implement, However it does not allow the user of the wallet to ensure the identity of the other party but only the domain name specified in the URL encoded in the QR Code. On the other hand, a simple solution based on access to a public register of Issuers / Verifier makes it possible to obtain more information for the user and therefore better control without considerably increasing the complexity of the protocol. However hhis service must be considered as optional due to correlation issues.
-
-Issuer and verifier implementation
-The Issuer (or Verifier) DID is passed as an argument in the QRcode callback URL.
-
-example : https://talao.co/....?issuer=did:ethr:0xee09654eedaa79429f8d216fa51a129db0f72250).
-
-
-Credential offer protocol
-=========================
+Altme Wallet : Credential offer protocol
+=========================================
 
 
 Motivation
@@ -88,11 +73,11 @@ The wallet response will be :
 
   {
     "id" : "hjhghlkjgljkgjkg",
-    “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-    “presentation”: vp
+    "Subjetc_id" : "did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    "presentation": "vp"
   }
 
-vp is a verifiable presentation as a string here.
+"vp" is a verifiable presentation as a string here.
 
 
 If the credential manifest does not request any vc, a vp "did auth" is signed and sent by the wallet to confirm key ownership. Example of a vp "did auth" :
@@ -124,23 +109,21 @@ Several verifiable presentations are requested in the credential manifest, walle
 
   {
     "id" : "hjhghlkjgljkgjkg",
-    “Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
-    “presentation” : "[ vp1, vp2, vp3,... ]"
+    "Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    "presentation" : "[ vp1, vp2, vp3,... ]"
   }
 
 vp1,... are strings
 
 verifiable presentation (vp) is a credential bound with nonce if available in the request. This credential includes all the existing profile attributes if wallet holder consents.  
 
-Credential manifest of the credential offer protocol
-=====================================================
+Altme Wallet : Credential manifest of the credential offer protocol
+=====================================================================
 
-...(DIF) "For User Agents (e.g. wallets) and other service that wish to engage with Issuers to acquire credentials, there must exist a mechanism for assessing what inputs are required from a Subject to process a request for credential(s) issuance. The Credential Manifest is a common data format for describing the inputs a Subject must provide to an Issuer for subsequent evaluation and issuance of the credential(s) indicated in the Credential Manifest."  
-
-In a credential manifest you can provide output descriptors with wallet rendring metada.   
+Credential manifest provide output descriptors with wallet rendering and presntation deifinition.   
  
-Output descriptors for Wallet rendering
-----------------------------------------
+Altme Wallet : Wallet rendering
+================================
 
 Wallet rendering is defined by this standard https://identity.foundation/wallet-rendering/   
 
@@ -381,8 +364,8 @@ Example to request any credentials with the attribute birthDate
 
 
 
-Presentation request query types 
-=================================
+Altme Wallet : Presentation request query types 
+================================================
 
 
 Motivation
@@ -400,7 +383,7 @@ There are 2 possibilities to foresee for the value of query.type of the JSON of 
   {
     "type": "VerifiablePresentationRequest",
     "query": [{
-        "type": “DIDAuth”
+        "type": "DIDAuth”
         }],
     "challenge": "a random uri",
     "domain" : "talao.co"
@@ -441,8 +424,8 @@ If Query.type = “DIDAuth” , then it is a basic authentication request that d
     "proof": {
       "type": "EcdsaSecp256k1Signature2019",
       "created": "2021-08-28T16: 13: 23.740Z",
-      “challenge”: “d602e96d-08cb-11ec-a6fa-8d5c53eaebfb",
-      “domain”: “talao.co”
+      "challenge": "d602e96d-08cb-11ec-a6fa-8d5c53eaebfb",
+      "domain”: “talao.co”
       "jws ":" eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..PgpEElB1tvcY9tdzK6EDKLvysj3vcH-zg5EIiGpk_q4m0NrAmjA81B7QdVvKllSzzfKw-1oTJuu4b4ihCvMXRwA
   " },
     "holder": "did:ethr:0xee09654eedaa79429f8d216fa51a129db0f72250"
@@ -614,8 +597,8 @@ Display a button link in the form of  https://app.altme.io/app/download?uri=http
 If the AltMe wallet is not available in the smartphone, the user is referred to the page https://app.altme.io/app/download which offers him access to the Apple Store or the Google store. 
 
 
-Servers return codes accepted by wallet
-=======================================
+Issuers and Verifiers return codes accepted by wallet
+====================================================
    
  200 OK
  Color : Green  
@@ -640,6 +623,9 @@ Servers return codes accepted by wallet
  408 Request Timeout
  Color : Red  
  Message : Request timeout
+
+ 412 Precondition failed
+ This is a specific pop up with custom text message
  
  429 : Too many requests
  Color : Red  

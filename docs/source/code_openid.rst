@@ -1,8 +1,8 @@
 
 .. _openid:
 
-OpenID integration
-==================
+Altme Saas : OpenID integration
+================================
 
 
 Overview

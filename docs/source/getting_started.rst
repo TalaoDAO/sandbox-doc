@@ -1,5 +1,5 @@
-Quick start
-===========
+Altme Saas : Quick start
+=========================
 
 You are now going to create your own Decentralized Identity and first SSI verifier for your web application.
 

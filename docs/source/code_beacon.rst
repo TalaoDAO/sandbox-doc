@@ -1,5 +1,5 @@
-Beacon integration
-==================
+Altme Saas : Beacon integration
+================================
 
 Overview
 --------
