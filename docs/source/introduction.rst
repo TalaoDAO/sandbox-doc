@@ -95,6 +95,7 @@ A universal wallet can buy, transfer and receive cryptos and NFTs and also recei
 
 In the following picture you can see the 3 most important screens of Altme Wallet with NFTs, Cryptos and Cards (verifiable credentials) carry by one user.
 
+
 .. image:: universal_wallet.png
       :width: 1000
 
@@ -116,6 +117,13 @@ Altme Wallet's design teams have therefore set out to create a wallet whose user
 Moreover, the interface is improved every day with feedback from many users of Web3 applications currently in production. 
 
 In order to allow Issuers to provide the best UX and UI, the Altme Wallet implement the DIF Wallet Rendering standards  https://identity.foundation/wallet-rendering/.
+
+
+
+.. image:: 2_loyalty_cards.png
+
+
+
 
 Altme Wallet credentials and keys backup and recovery
 ******************************************************
@@ -149,7 +157,7 @@ Verifiable Credentials are off-chain data container, for privacy protection and 
 
 Many credentials are today available specifically for Web3 use cases : 
 
-* Loyalty cards for gamers
+* Loyalty cards and vouchers for gaming platforms
 * Custom Gamer Pass and DeFi pass
 * Discord or Twitter account proof
 * Over 13 proof
@@ -160,6 +168,10 @@ Many credentials are today available specifically for Web3 use cases :
 * Unique identifier for DAO voting
 * Email proof and Phone proof for simple authentication
 * Veriable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
+
+
+
+.. image:: voucher_design.png
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
 
@@ -327,6 +339,10 @@ Crypto wallets supported are (none exhaustive list)  :
 * EVM : **Metamask, Ledger Live, Trust wallet**
   
 Go to  https://app.altme.io/wallet-link to test the possibility to use Altme Wallet with your prefered crypto wallet without revealing the crypto wallet private key.
+
+
+
+.. image:: kukai_card.png
 
 
 Web3 verifiers and on-chain integration with anonymous whitelist
