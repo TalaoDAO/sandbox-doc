@@ -357,23 +357,18 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 					"@version": 1.1,
 					"@protected": true,
 					"id": "@id",
-                              "type": "@type",
-					"schema" : "https://schema.org/",
-					"accountName" :  "schema:identifier",
-      				"associatedAddress" : "schema:account",
-					"cryptoWalletSignature" : "schema:identifier",
-					"cryptoWalletPayload" : "schema:identifier",
+					"type": "@type",
+					"accountName" :  "https://github.com/TalaoDAO/context#accountname",
+					"associatedAddress" : "https://w3id.org/security#blockchainAccountId",
 					"issuedBy": {
-						"@id": "schema:issuedBy",
+						"@id": "https://schema.org/issuedBy",
 						"@context": {
 							"@version": 1.1,
 							"@protected": true,
-							"schema" : "https://schema.org/",
-							"name" :  "schema:name"
+							"name" :  "https://schema.org/name"
 						}
 					}
        			}
-			}
 		}
    	],
 	"id" : "urn:uuid:4cd16825-5872-43e5-8a56-7a2c5d5cb2f7",
