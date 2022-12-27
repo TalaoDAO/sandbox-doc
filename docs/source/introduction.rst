@@ -46,14 +46,15 @@ It is also possible to use a cloud agent. Holders can request all verifiable dig
 
 The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
 Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
-On the other hand, the latter brings significant added value as a decentralized source of trust, in particular to make the link between the DID of an Issuer or a Verifier
-and their cryptographic materials and their real identity without accessing a centralized Certificate Authorithy. 
+On the other hand, the latter brings significant added value as a decentralized source of trust, an example is the link between the DID of an Issuer or a Verifier
+and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential datra model, revocation registries, 
+public issuer keys, trusted issuer and verifier registries...and in general all the data of the Verifiable Data Regitry.
 
 For a natural person the added value of SSI is huge and it is a game changer compared to other "identity" solutions. An SSI wallet is different from a solution 
 such as the Apple wallet because the user is the sole owner of his wallet and so he can add new credentials to it without asking for authorization from a third party.
 SSI is also different from a solution such as Google Connect or FranceConnect because the user carries his data on him and is able to authenticate with a third party without intermediation.
 
-The verifiable credential model of SSI is also a huge improvment of the X509 certificate format as authentication materials and identification attributes
+The verifiable credential model of SSI is also an improvment of the X509 certificate format as authentication materials and identification attributes
 are now splited into 2 documents (DID Document and verifiable credentials) allowing simple key rotation and multiple asociations for long term use.
 
 The Self Sovereign Identity model has been integrated into several ecosystems around the world and in particular in Europe with the deployment of the infrastructure
@@ -121,7 +122,6 @@ In order to allow Issuers to provide the best UX and UI, the Altme Wallet implem
 
 
 .. image:: 2_loyalty_cards.png
-
 
 
 
@@ -219,8 +219,50 @@ Altme Issuer DID Document is available through the DIF Universal Resolver : http
       }
 
 
+
+
+Give an Identity to your crypto wallet
+--------------------------------------
+
+This is a service offered by Altme, free and available here :  https://app.altme.io/wallet-link .
+
+Current crypto wallets like Metamask, Trust wallet, Ledger or Temple wallet for Tezos do not carry personal data as verifiable credentials. 
+We think that they will do it in a more or less close future to adapt to regulations but for the moment 
+it is therefore extremely difficult to know the user who is carrying out a transaction. Anonymity is an important benefit of blockchain technology but in some cases this can be a problem.
+
+The use of processes such as the **KYC carried out by the site of the Web3 platform responds badly** to this problem for several reasons:
+
+* It reveals all of a user's personal data to the Web3 operator and some of it is unnecessary for the strict need of the application.
+* It is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
+* KYC is the only proof that it is possible to produce even though the identity of a person can be proven by a large number of documents (diplomas, employer certificate, health card, proof of address, etc.)
+* KYC is often attached to a single address on a single blockchain
+
+The use of Altme Wallet easily solves these problems because it allows the user to transfer only the minimum, necessary information, to choose the attribute(s) 
+of his identity from different documents and then to associate them with an address group. possibly on different blockchains.
+
+However, to take advantage of SSI features with a crypto wallet, it is necessary to associate your prefered crypto wallet with Altme Wallet.
+
+The association of a crypto wallet to Altme Wallet can be done in 2 different ways:
+
+* By transferring the private key (or passphrase) from the crypto wallet to the Altme Wallet. The crypto account is then available on Altme Wallet as if it had been created by Altme Wallet.
+* By creating in Altme Wallet a proof of blockchain account ownership **without revealing the private key of the crypto wallet**. This is possible using the Beacon Tezos or WalletConnect EVM protocols to authenticate with the crypto wallet.
+
+The Altme Wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
+
+Crypto wallets supported are (none exhaustive list)  : 
+
+* Tezos : **Temple mobile, Temple Web Extension, Air Gap, Kukai, Digital Art Autonomy, Umami**
+* EVM : **Metamask, Ledger Live, Trust wallet**
+  
+Go to  https://app.altme.io/wallet-link to test the possibility to use Altme Wallet with your prefered crypto wallet without revealing the crypto wallet private key.
+
+
+
+Technical considerations
+-------------------------
+
 Decentralized IDentifiers (DIDs), private keys and derivation path
---------------------------------------------------------------------
+*******************************************************************
 
 For Altme Wallet we have chosen to use the DID method did:key for practical reasons.
 
@@ -238,12 +280,13 @@ The obvious risk is to eventually have an immediate correlation between an ident
 
 For this, the choice we have made is to derive the private key(s) of our identity with a specific path different from that used for the crypto wallets.
 Currently we use the derivation **m/44'/5467'/0'/0** for the generation of identity keys which avoids any collision with that used for Tezos wallets m/44'/1729'/0'/0 or Metamask m/44'/60'/0'/0 while keeping the same passphrase.
+Altme is registered on the BIP44 registry list for the path "5467" : https://github.com/satoshilabs/slips/blob/master/slip-0044.md 
 
-Furthermore Altme Wallet and Altme Web3 Issuer support **Ed25519, Secp256k1, P-256 and RSA keys**.
+Altme Wallet and Altme Web3 Issuer support **Ed25519, Secp256k1, P-256 and RSA keys**.
 
 
 The proof of blockchain address ownership
------------------------------------------
+******************************************
 
 It is a verifiable credential which is issued by the "crypto account" of the wallet itself and whose subject is the identity (DID) carried by the wallet. Once presented to a verifier, it is a credential that has the signature of the two private keys.
 
@@ -305,48 +348,8 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 	}
    }
 
-Give an Identity to your crypto wallet
---------------------------------------
-
-This is a service offered by Altme, free and available here :  https://app.altme.io/wallet-link .
-
-Current crypto wallets like Metamask, Trust wallet, Ledger or Temple wallet for Tezos do not carry personal data as verifiable credentials. 
-We think that they will do it in a more or less close future to adapt to regulations but for the moment 
-it is therefore extremely difficult to know the user who is carrying out a transaction. Anonymity is an important benefit of blockchain technology but in some cases this can be a problem.
-
-The use of processes such as the **KYC carried out by the site of the Web3 platform responds badly** to this problem for several reasons:
-
-* It reveals all of a user's personal data to the Web3 operator and some of it is unnecessary for the strict need of the application.
-* It is often impossible to ensure that the crypto address is indeed owned by the person performing the KYC.
-* KYC is the only proof that it is possible to produce even though the identity of a person can be proven by a large number of documents (diplomas, employer certificate, health card, proof of address, etc.)
-* KYC is often attached to a single address on a single blockchain
-
-The use of Altme Wallet easily solves these problems because it allows the user to transfer only the minimum, necessary information, to choose the attribute(s) 
-of his identity from different documents and then to associate them with an address group. possibly on different blockchains.
-
-However, to take advantage of SSI features with a crypto wallet, it is necessary to associate your prefered crypto wallet with Altme Wallet.
-
-The association of a crypto wallet to Altme Wallet can be done in 2 different ways:
-
-* By transferring the private key (or passphrase) from the crypto wallet to the Altme Wallet. The crypto account is then available on Altme Wallet as if it had been created by Altme Wallet.
-* By creating in Altme Wallet a proof of blockchain account ownership **without revealing the private key of the crypto wallet**. This is possible using the Beacon Tezos or WalletConnect EVM protocols to authenticate with the crypto wallet.
-
-The Altme Wallet can therefore carry the verifiable credentials of the user of a wallet such as Metamask or Ledger, which then simplifies and secures the onboarding of this user on web3 platforms.
-
-Crypto wallets supported are (none exhaustive list)  : 
-
-* Tezos : **Temple mobile, Temple Web Extension, Air Gap, Kukai, Digital Art Autonomy, Umami**
-* EVM : **Metamask, Ledger Live, Trust wallet**
-  
-Go to  https://app.altme.io/wallet-link to test the possibility to use Altme Wallet with your prefered crypto wallet without revealing the crypto wallet private key.
-
-
-
-.. image:: kukai_card.png
-
-
 Web3 verifiers and on-chain integration with anonymous whitelist
-----------------------------------------------------------------
+*****************************************************************
 
 The Verifier is the module of an application or a standalone application whose purpose is to verify the correctness and origin of a user's verifiable identifiers/verifiable presentations.
 
@@ -364,8 +367,8 @@ Of course, the whitelist identifier must remain insignificant to avoid any corre
 
 The verifier pays the transaction fee and the DID of the verifier must be known to the smart contract to validate the forwarding address.
 
-Crypto and SSI features
--------------------------
+Features
+*********
 
 **Crypto**: 
 
@@ -374,8 +377,8 @@ Crypto and SSI features
 * Polygon Mainnet https://polygon.technology/
 * Fantom Mainet https://fantom.foundation/
 * Binance https://www.binance.com/en/bnb
-* Etherscan API and Infura nodes for EVM.  
-* TzKT indexer for Tezos.  
+* Web3 provider Infura  
+* TzKT indexer for Tezos  
 * TezID for whitelisting on Tezos with smart contract entry points and Off chain APIs :  https://tezid.net/   
 * Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
 * WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
@@ -385,13 +388,14 @@ Crypto and SSI features
 
 * VC/VP in JSON-LD and JWT format
 * RSA, Ed25519, secp256k1 and P-256 keys
-* SiopV2, OIDC4VP, OIDC: different OpenID SSI and standard flows for verification and issuance
+* Support of did:key, did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web  
+* Signature scheme : RSASignature2018, Ed25519VerificationKeys, EcdsaSecp256k1Signature2019,EcdsaSecp256r1Signature2019, EcdsaSecp256k1RecoverySignature2020, Eip712Signature2021, SolanaSignature2021, JsonWebSignature2020
+* Protocols : SiopV2, OIDC4VP, OIDC: different OpenID SSI and standard flows for verification and issuance
 * Verifiable Presentation Request with QueryByExample and DID Auth  https://w3c-ccg.github.io/vp-request-spec/
 * Credential manifest with wallet rendering https://identity.foundation/wallet-rendering/
-* DIDKit from SpruceId https://www.spruceid.dev/didkit/didkit
-* Support of did:key, did:ebsi, did:tz; did:pkh; did:sol; did:ion, did:eth, did:web  
+* Stack DIDKit from SpruceId https://www.spruceid.dev/didkit/didkit
 * Wallet embedded resolver for implicit DID method, did:tz and did:web
-* Support of Issuers and Verfiers trusted registries
+* Support of Issuers and Verifiers trusted registries
 
 
 
