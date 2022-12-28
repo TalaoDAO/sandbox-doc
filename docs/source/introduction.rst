@@ -2,7 +2,7 @@ Introduction
 ============
 
 Internet applications suffer from the lack of proper identity management. TCP/IP was designed as a network of networks with the sole purpose of identifying machines and not their users.
-The rise of the web in the 90s favored the emergence of servers that concentrated user access and capitalized on stored data to the point of being today the identity providers of a significant part of humanity. .
+The rise of the web in the 90s favored the emergence of servers that concentrated user access and capitalized on stored data to the point of being today the identity providers of a significant part of humanity.
 The GAFAMs implemented an identity layer above TCP/IP because there was none and we all missed it.
 
 For about ten years now, the concern for the protection of personal data has become a major subject for policies and new paths have been opened up, such as in particular the concepts of 
@@ -13,7 +13,8 @@ Web3 suffers like web2 from the lack of proper identity management. On the other
 * The users of web3 applications are even less docile than those of internet applications. they are more concerned with the management of their data because decentralized finance has already done its work.
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain data container by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
-Web3 + SSI is the full decentralization of data and assets : **Our keys, our data and assets**.
+
+**Web3 + SSI is true decentralization : My keys, my data, my assets !**. 
 
 
 What is Self Sovereign Identity ?
@@ -22,10 +23,11 @@ What is Self Sovereign Identity ?
 Self-Sovereign Identity, or SSI, is a new technology compatible with blockchain that gives users and organizations the ability to control their own digital credentials
 and identity data, rather than relying on a central authority or central database to manage their personal information. SSI does not require bockchain as a source of trust but DLT makes it easier to implement.
 
-With SSI, users are able to store, manage and share their personal data in a decentralize manner, enabling greater privacy and security. SSI also uses Zero-Knowledge Proof and "Selective Disclosure" to protect
-users privacy.
+With SSI, users are able to store, manage and share their personal data in a decentralize manner, enabling greater privacy and security. 
+SSI also uses Zero-Knowledge Proof, selective disclosure and data minimization to protect user privacy.
 
-In practice SSI is an international standard defined by the World Wide Web Consortium (W3C) https://www.w3.org/ with two main documents :
+In practice SSI is made up of international standards defined by the World Wide Web Consortium (W3C) https://www.w3.org/. 
+Two documents are today W3C recommendations :
 
 * **Verifiable credentials** data model https://www.w3.org/TR/vc-data-model/ : an **off-chain data container** to gather personal data.
 * **Decentralized Identifiers** https://www.w3.org/TR/did-core/ : a new generation of identifiers (DID) whose possession can be proven. 
@@ -44,17 +46,28 @@ It is essential that the transmission of the verifiable digital evidence between
 **Holders** (or users) : they usually have a corresponding SSI app named wallet on their mobile device or desktop, which stores SSI private keys and the digital verifiable credentials. 
 It is also possible to use a cloud agent. Holders can request all verifiable digital proofs from the corresponding issuers and store them in their own SSI wallet.
 
+
+|
+
+
+.. image:: ecosystem.svg
+      :width: 1000
+      :align: center
+
+*Image from W3C Verifiable credential V2.0*
+
+|
 The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
 Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
 On the other hand, the latter brings significant added value as a decentralized source of trust, an example is the link between the DID of an Issuer or a Verifier
 and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential datra model, revocation registries, 
-public issuer keys, trusted issuer and verifier registries...and in general all the data of the Verifiable Data Regitry.
+public issuer keys, trusted issuer and verifier registries and in general some of the data of the **Verifiable Data Regitry**.
 
 For a natural person the added value of SSI is huge and it is a game changer compared to other "identity" solutions. An SSI wallet is different from a solution 
 such as the Apple wallet because the user is the sole owner of his wallet and so he can add new credentials to it without asking for authorization from a third party.
 SSI is also different from a solution such as Google Connect or FranceConnect because the user carries his data on him and is able to authenticate with a third party without intermediation.
 
-The verifiable credential model of SSI is also an improvment of the X509 certificate format as authentication materials and identification attributes
+The verifiable credential model of SSI is also an improvment of the X509 certificate format first published in 1988 as authentication materials and identification attributes
 are now splited into 2 documents (DID Document and verifiable credentials) allowing simple key rotation and multiple asociations for long term use.
 
 The Self Sovereign Identity model has been integrated into several ecosystems around the world and in particular in Europe with the deployment of the infrastructure
@@ -65,7 +78,7 @@ Altme solution suite is made up of 3 components
 -----------------------------------------------
 
 Altme offers 3 components to implement SSI in Web3 applications. On the other hand, it is important to appreciate that the strength of the SSI model is interoperability and 
-therefore all the components offered by Altme are available in **open source and implement protocols and standards recognized by the W3C and shared by the community**.
+therefore all the components offered by Altme are available in open source and implement **protocols and standards recognized by the W3C and shared by the community**.
 
 * **Altme Wallet** : The user friendly SSI mobile wallet for web3 applications
 * **Altme Saas** : The next generation platform to build Issuers and Verifiers in minutes
@@ -96,9 +109,13 @@ A universal wallet can buy, transfer and receive cryptos and NFTs and also recei
 
 In the following picture you can see the 3 most important screens of Altme Wallet with NFTs, Cryptos and Cards (verifiable credentials) carry by one user.
 
+|
 
 .. image:: universal_wallet.png
       :width: 1000
+      :align: center
+
+|
 
 
 This also implies that a universal wallet supports both connection protocols with a dApp such as Beacon (or its walletConnect equivalent on EVM) and SSI protocols (WACI PEX, SIOPv2, ...DIDComm,..).
@@ -119,11 +136,12 @@ Moreover, the interface is improved every day with feedback from many users of S
 
 In order to allow Issuers to provide the best UX and UI, the Altme Wallet implement the **DIF Wallet Rendering standards**  https://identity.foundation/wallet-rendering/.
 
-
+|
 
 .. image:: 2_loyalty_cards.png
+      :align: center
 
-
+|
 
 Altme Wallet credentials and keys backup and recovery
 ******************************************************
@@ -179,6 +197,7 @@ Many credentials are today available specifically for Web3 use cases :
 
 * Loyalty cards and vouchers for gaming platforms
 * Custom Gamer Pass and DeFi pass
+* Mobile device information
 * Discord or Twitter account proof
 * Over 13 and Over 18 age proof
 * Age range
@@ -191,8 +210,12 @@ Many credentials are today available specifically for Web3 use cases :
 * Verifiable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
 * Company pass
 
+|
 
 .. image:: voucher_design.png
+      :align: center
+
+|
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
 
@@ -220,7 +243,7 @@ Altme Issuer DID is **did:web:app.altme.io:issuer**
 Altme Issuer DID Document is available through the DIF Universal Resolver : https://dev.uniresolver.io/ and see below its content.
  
 
-.. code-block:: javascript
+.. code-block:: JSON
 
 
       {
@@ -345,11 +368,11 @@ crypto addresses : cf https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-metho
 
 Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet for a Tezos account :
 
-.. code-block:: javascript
-
+.. code-block:: JSON
 
   {
-      "@context": [ "https://www.w3.org/2018/credentials/v1", 
+      "@context": [
+            "https://www.w3.org/2018/credentials/v1", 
 		{
 			"TezosAssociatedAddress" : {
 				"@id" : "https://github.com/TalaoDAO/context#tezosassociatedaddress",
@@ -368,7 +391,8 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
 							"name" :  "https://schema.org/name"
 						}
 					}
-       			}
+                        }
+                  }
 		}
    	],
 	"id" : "urn:uuid:4cd16825-5872-43e5-8a56-7a2c5d5cb2f7",
@@ -413,10 +437,10 @@ Web3 verifiers and on-chain integration with Soulbound token (SBTs)
 
 This is an experimental feature currently in test on Tezos Ghostnet and Fantom Tesnet.
 
-An SBT is minted when a credential is issued for a specific. Smart contracts can then check the token and the user can see the token in his Altme Wallet and 
+An SBT is minted when a credential is issued for a specific address. Smart contracts can then check the token and the user can see the token in his Altme Wallet and 
 other crypto wallets. 
 
-For obvious privacy reasons, no personal data are stored in the NFT. 
+For obvious privacy reasons, no personal data is stored on-chain and on IPFS. 
 
 Features
 *********

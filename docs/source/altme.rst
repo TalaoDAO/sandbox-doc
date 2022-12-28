@@ -48,7 +48,7 @@ When the wallet makes a GET to the Issuer endpoint, a JSON is returned to the wa
 
 example:  
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "CredentialOffer",
@@ -69,49 +69,52 @@ id, challenge and domain are optional attributes.
 
 The wallet response will be :
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "id" : "hjhghlkjgljkgjkg",
-    "Subjetc_id" : "did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    "Subjetc_id" : "did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW",
     "presentation": "vp"
   }
+ 
 
 "vp" is a verifiable presentation as a string here.
 
 
 If the credential manifest does not request any vc, a vp "did auth" is signed and sent by the wallet to confirm key ownership. Example of a vp "did auth" :
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
-    '@context': [
-      'https://www.w3.org/2018/credentials/v1'
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1"
     ],
-    'type': 'VerifiablePresentation',
-    'proof': {
-      'type': 'Ed25519Signature2018',
-      'proofPurpose': 'authentication',
-      'challenge': '',
-      'verificationMethod': 'did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G#z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G',
-      'created': '2022-12-14T14:17:33.782Z',
-      'domain': '',
-      'jws': 'eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..Di0w_VVLzap9jwE2Ny7CU8dHfxY-yZWJzGzVGj7Z4XNSbeJ4aQVLfix3uGqaAjF53Lb166YY6YqwouAjRz-5Bw'
+    "type": "VerifiablePresentation",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "proofPurpose": "authentication",
+      "challenge": "lkjhlkjh",
+      "verificationMethod": "did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G#z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G",
+      "created": "2022-12-14T14:17:33.782Z",
+      "domain": "talao.co",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..Di0w_VVLzap9jwE2Ny7CU8dHfxY-yZWJzGzVGj7Z4XNSbeJ4aQVLfix3uGqaAjF53Lb166YY6YqwouAjRz-5Bw"
     },
-    'holder': 'did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G'
+    "holder": "did:key:z6MktsB3ztEt3BsR3P6pLffDnjZi7DH85wsbp71fAfPk3F6G"
   }
 
 
 Several verifiable presentations are requested in the credential manifest, wallet response will be :
 
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "id" : "hjhghlkjgljkgjkg",
-    "Subject_id” : ”did:tz:tz1e5YakmACgZZprF7YWHMqnSvcWVXZ2TsPW”,
+    "Subject_id" : "did:tz:tzYakmACgZZprF7YWHMqnSvcWVXZ2TsPW",
     "presentation" : "[ vp1, vp2, vp3,... ]"
   }
+  
+  
 
 vp1,... are strings
 
@@ -134,7 +137,7 @@ The "Informations" accordion of Altme is made up of all properties of the output
 Altme supports type "string" with specific format "email", "uri", "date", hour" and other types as "number", "integer" and "bool". See an example here :   
 
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   { "output_descriptors":[                       
                         {
@@ -215,7 +218,7 @@ Altme supports type "string" with specific format "email", "uri", "date", hour" 
 An example here with output descriptors :  
 
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
               "id":"PC_01",
@@ -307,7 +310,7 @@ Input descriptors are used to specify the data or credentials needed to issue a 
 An example here with only input descriptors (EmailPass required to issue a credential) :  
 
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
   "credential_manifest": {
@@ -338,7 +341,7 @@ An example here with only input descriptors (EmailPass required to issue a crede
 
 Example to request any credentials with the attribute birthDate
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
   "credential_manifest": {
@@ -378,13 +381,15 @@ Verifier implementation
 
 There are 2 possibilities to foresee for the value of query.type of the JSON of the GET response of the Verify (“DIDAuth” or “QueryByExample”):
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "VerifiablePresentationRequest",
-    "query": [{
-        "type": "DIDAuth”
-        }],
+    "query": [
+      {
+        "type": "DIDAuth"
+      }
+    ],
     "challenge": "a random uri",
     "domain" : "talao.co"
   }
@@ -393,17 +398,15 @@ There are 2 possibilities to foresee for the value of query.type of the JSON of 
 or: 
 
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "VerifiablePresentationRequest",
     "query": [{
       "type": "QueryByExample",
       "credentialQuery": [
-          {
-                    ……
-                   }]
-               }],
+        {}]
+    }],
     "challenge": "a random uri",
     "domain" : "talao.co"
   }
@@ -414,7 +417,7 @@ DIDAuth
 
 If Query.type = “DIDAuth” , then it is a basic authentication request that does not include a verifiable credential : there is no selection of credential to propose to the user, call the function didkit.DIDAuth(did, “{“ challenge ”:“ .... ”,“ domain ”:“ ..... ”}”, key) which will create an empty presentation used only for authentication. The presentation passed with the POST request will look like this:
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "@context": [
@@ -423,13 +426,14 @@ If Query.type = “DIDAuth” , then it is a basic authentication request that d
     "type": "VerifiablePresentation",
     "proof": {
       "type": "EcdsaSecp256k1Signature2019",
-      "created": "2021-08-28T16: 13: 23.740Z",
+      "created": "2021-08-28T16:13:23.740Z",
       "challenge": "d602e96d-08cb-11ec-a6fa-8d5c53eaebfb",
-      "domain”: “talao.co”
-      "jws ":" eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..PgpEElB1tvcY9tdzK6EDKLvysj3vcH-zg5EIiGpk_q4m0NrAmjA81B7QdVvKllSzzfKw-1oTJuu4b4ihCvMXRwA
-  " },
+      "domain": "talao.co",
+      "jws" : "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..PgpEElB1tvcY9tdzK6EDKLvysj3vcH-zg5EIiGpk_q4m0NrAmjA81B7QdVvKllSzzfKw-1oTJuu4b4ihCvMXRwA"
+    },
     "holder": "did:ethr:0xee09654eedaa79429f8d216fa51a129db0f72250"
   }
+  
 
 
 If Query.type ="QueryByExample "then it will take the user selects credentials in a list constituted according to the criteria specified in "credentialQuery.example". Then it will be necessary to call the didkit.issuePresentation (...) function as what is currently done (there is no change in the function call).  
@@ -466,7 +470,7 @@ QBE Examples
 Example 1
 Verifier requests VCs issued by did:tz:tz2NQkPq3FFA3zGAyG8kLcWatGbeXpHMu7yk:
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "VerifiablePresentationRequest",
@@ -495,7 +499,7 @@ Verifier requests VCs issued by did:tz:tz2NQkPq3FFA3zGAyG8kLcWatGbeXpHMu7yk:
 Example 2
 Verifier requests a ResidentCard:
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "VerifiablePresentationRequest",
@@ -519,7 +523,7 @@ Verifier requests a ResidentCard:
 Example 3
 Verifier requests a ResidentCard signed by a specific issuer :
 
-.. code-block:: javascript
+.. code-block:: JSON
 
   {
     "type": "VerifiablePresentationRequest",
@@ -548,7 +552,7 @@ Verifier requests a ResidentCard signed by a specific issuer :
 Example 4
 Verifier attaches messages for user but no credential criters :
 
-.. code-block:: javascript
+.. code-block:: JSON
   {
     "type": "VerifiablePresentationRequest",
     "query": [

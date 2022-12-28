@@ -44,7 +44,7 @@ As you will see in an implicit flow, the id_token is passed as a fragment (#), y
 Copy this id_token and go to https://jwt.io , paste the id_token value in the left side and you will get the following json data decrypted  :
 
 
-.. code-block:: json
+.. code-block:: JSON
 
     {
         "aud": "xgdfdbzwri",
