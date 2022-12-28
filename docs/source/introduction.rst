@@ -59,13 +59,13 @@ It is also possible to use a cloud agent. Holders can request all verifiable dig
 |
 The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
 Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
-On the other hand, the latter brings significant added value as a decentralized source of trust for integrity content protection, an example is the link between the DID of an Issuer or a Verifier
-and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential datra model, revocation registries, 
-public issuer keys, trusted issuer and verifier registries and in general some of the data of the **Verifiable Data Regitry**.
+On the other hand, the latter brings significant added value as a decentralized source of trust for integrity content protection. An example is the link between the DID of an Issuer or a Verifier
+and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential data model, revocation registries, 
+public issuer keys, trusted issuer and verifier registries. See **Verifiable Data Regitry**.
 
-For a natural person the added value of SSI is huge and it is a game changer compared to other "identity" solutions. An SSI wallet is different from a solution 
+For a natural person the added value of SSI is huge. It is a game changer compared to other "identity solutions". An SSI wallet is different from a solution 
 such as the Apple wallet because the user is the sole owner of his wallet and so he can add new credentials to it without asking for authorization from a third party.
-SSI is also different from a solution such as Google Connect or FranceConnect because the user carries his data on him and is able to authenticate with a third party without intermediation.
+SSI is also different from a solution such as Google Connect or FranceConnect (Eidas v1) because the user carries his data on him and is able to authenticate with a third party without intermediation.
 
 The verifiable credential model of SSI is also an improvment of the X509 certificate format first published in 1988 as authentication materials and identification attributes
 are now splited into 2 documents (DID Document and verifiable credentials) allowing simple key rotation and multiple asociations for long term use.
@@ -93,19 +93,19 @@ Altme Wallet
 Altme Wallet is an universal wallet
 ***********************************
 
-The Altme Wallet that we offer is a so-called "Universal" wallet. Altme is a user friendly SSI wallet with crypto features. 
-Altme Wallet is a mobile wallet developped in Flutter/Dart for IOS and Android.
+The Altme Wallet that we offer is a so-called "Universal" wallet. **Altme Wallet is a user friendly SSI mobile wallet with crypto features**. 
 
 It is universal in that it allows you to manage in the same mobile application both your cryptos, NFT and your identity data in a decentralized way.
 
 Identity must be understood in the broadest sense, this of course includes identity documents but also the personal data of our associative, cultural, professional and economic life.
 Altme is simply an electronic version of the wallet we've had in our pockets for years. A Universal wallet is ultimately very common.
 
-The Altme wallet is a new generation of wallet, it is likely that in the medium term other provider wallets will see the benefit of associating data with the transfer of assets.
+The Altme Wallet is a new generation of wallet, it is likely that in the medium term other provider wallets will see the benefit of associating data with the transfer of assets.
 identity allows a third party to manage its risk in an exchange. Identity is essential in any economic system.
-A universal wallet is a wallet that carries the private keys of its crypto accounts and the verifiable credentials of its decentralized identity.
 
-A universal wallet can buy, transfer and receive cryptos and NFTs and also receive and present verifiable credentials and verifiable presentations to the W3C standard.
+An universal wallet is a wallet that carries the private keys of its crypto accounts and the verifiable credentials of its decentralized identity.
+
+An universal wallet can buy, transfer and receive cryptos and NFTs and also can receive, store and present verifiable credentials.
 
 
 |
@@ -143,7 +143,7 @@ In order to allow Issuers to provide the best UX and UI, the Altme Wallet implem
 .. image:: 2_loyalty_cards.png
       :align: center
 
-.. centered:: Crypto games membership cards as verifiable credentials
+.. centered:: Wallet rendering of crypto games membership cards as verifiable credentials in Altme Wallet
 
 |
 
@@ -219,7 +219,7 @@ Many credentials are today available specifically for Web3 use cases :
 .. image:: over18-13.png
       :align: center
 
-.. centered:: Age Over verifiable credentials
+.. centered:: Wallet rendering of Age Over verifiable credentials in Altme Wallet
 
 |
 
@@ -233,12 +233,12 @@ Altme Web3 Issuer partners for identification
 
 Identification is a complex activity. In order to guarantee the best level of quality, Altme has selected 2 recognized companies for the production of basic data:
 
-Yoti: https://www.yoti.com/: The partnership we have with Yoti concerns its activity in artificial intelligence and in particular the ability
+**Yoti**: https://www.yoti.com/: The partnership we have with Yoti concerns its activity in artificial intelligence and in particular the ability
 to assess the age of a user based on photos of identify. This approach has the advantage of allowing a rapid evaluation with a margin of error of 
 less than 2 years in 90% of cases. Using an AI helps to minimize friction with Web3 users who are not inclined to present their ID card for further
 identification. Based on Yoti's age rating, Altme is able to sign proof of age +13, +18 and age range.
 
-Passbase: https://passbase.com: The partnership with Passbase concerns its identification activity with 3D liveness test and authentication of documents
+**Passbase**: https://passbase.com: The partnership with Passbase concerns its identification activity with 3D liveness test and authentication of documents
 (driver's license, identity card or passport). Based on the information provided by Passbase Altme is able to sign credentials with the bare minimum of 
 data: proof of nationality, residence, birth date, sex, age and of course the standard DeFI KYC and AML. A unique identification number for voting in DAOs is also available.
 
@@ -290,11 +290,11 @@ Altme Issuer DID Document is available through the DIF Universal Resolver : http
       }
 
 
-Altme used some other DIDs now deprecated
+Altme used some other DIDs (deprecated)
 
-* Tezos (did:tz) : did:tz:tz1NyjrTUNxDpPaqNZ84ipGELAcTWYg6s5Du
-* DNS (did:web) : did:web:talao.co
-* Ethereum (did:ethr) : did:ethr:0x61fb76ff95f11bdbcd94b45b838f95c1c7307dbd
+* Tezos Mainnet : did:tz:tz1NyjrTUNxDpPaqNZ84ipGELAcTWYg6s5Du
+* DNS  : did:web:talao.co
+* Ethereum Mainnet : did:ethr:0x61fb76ff95f11bdbcd94b45b838f95c1c7307dbd
 
 Give an Identity to your crypto wallet
 --------------------------------------
@@ -374,7 +374,7 @@ For this very specific verifiable credential we use the DID method **did:pkh** p
 crypto addresses : cf https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md  
 
 
-Example of a proof of blockchain account ownership with did:pkh:tz as the DID method of the crypto wallet for a Tezos account :
+Example of a proof of blockchain account ownership verifiable credentials with did:pkh:tz as the DID method of the crypto wallet for a Tezos account (JSON-LD format):
 
 .. code-block:: JSON
 
@@ -419,6 +419,18 @@ Example of a proof of blockchain account ownership with did:pkh:tz as the DID me
             }
 	}
    }
+
+
+|
+
+.. image:: blockchain_accounts.png  
+      :width: 1000
+      :align: center
+
+.. centered:: Wallet rendering of blockchain account proofs of ownership in Altme Wallet
+
+
+|
 
 Web3 verifiers and on-chain integration with anonymous whitelist
 *****************************************************************
