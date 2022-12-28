@@ -54,12 +54,12 @@ It is also possible to use a cloud agent. Holders can request all verifiable dig
       :width: 1000
       :align: center
 
-*Image from W3C Verifiable credential V2.0*
+.. centered:: Image from W3C Verifiable credential V2.0
 
 |
 The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
 Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
-On the other hand, the latter brings significant added value as a decentralized source of trust, an example is the link between the DID of an Issuer or a Verifier
+On the other hand, the latter brings significant added value as a decentralized source of trust for integrity content protection, an example is the link between the DID of an Issuer or a Verifier
 and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential datra model, revocation registries, 
 public issuer keys, trusted issuer and verifier registries and in general some of the data of the **Verifiable Data Regitry**.
 
@@ -107,13 +107,15 @@ A universal wallet is a wallet that carries the private keys of its crypto accou
 
 A universal wallet can buy, transfer and receive cryptos and NFTs and also receive and present verifiable credentials and verifiable presentations to the W3C standard.
 
-In the following picture you can see the 3 most important screens of Altme Wallet with NFTs, Cryptos and Cards (verifiable credentials) carry by one user.
 
 |
 
 .. image:: universal_wallet.png
       :width: 1000
       :align: center
+
+.. centered:: The 3 most important screens of Altme Wallet with NFTs, Cryptos and Cards (verifiable credentials) carry by one user.
+
 
 |
 
@@ -140,6 +142,8 @@ In order to allow Issuers to provide the best UX and UI, the Altme Wallet implem
 
 .. image:: 2_loyalty_cards.png
       :align: center
+
+.. centered:: Crypto games membership cards as verifiable credentials
 
 |
 
@@ -199,8 +203,8 @@ Many credentials are today available specifically for Web3 use cases :
 * Custom Gamer Pass and DeFi pass
 * Mobile device information
 * Discord or Twitter account proof
-* Over 13 and Over 18 age proof
-* Age range
+* Age Over 13 and Age Over 18 credential
+* Age range credential
 * Nationality proof
 * Residency proof
 * AML check
@@ -212,10 +216,14 @@ Many credentials are today available specifically for Web3 use cases :
 
 |
 
-.. image:: voucher_design.png
+.. image:: over18-13.png
       :align: center
 
+.. centered:: Age Over verifiable credentials
+
 |
+
+
 
 We apply the principle of data minimization and thus credentials always carry the minimum data required for user needs. All credential data are displayed in the wallet for user data control.
 
@@ -474,3 +482,10 @@ Features
 * Beacon for Tezos blockchain https://docs.walletbeacon.io/ 
 * WalletConnect 1.7.x fpr EVM chains  https://walletconnect.com/ 
 
+|
+
+.. image:: altme.png
+      :width: 300
+      :align: center
+
+.. centered:: Decentralized Identity for Web3
