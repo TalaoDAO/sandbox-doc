@@ -14,7 +14,7 @@ Web3 suffers like web2 from the lack of proper identity management. On the other
 * Web3 applications require on-chain data integration but the verifiable credentials we use in the SSI are off-chain data container by construction so we have to find solutions, tricks to make a bridge that allow both to use the technology provided by the blockchain while guaranteeing the protection of user data.
 
 
-**Web3 + SSI is true decentralization : My keys, my data, my assets !**. 
+.. centered:: **Web3 + SSI is true decentralization**. 
 
 
 What is Self Sovereign Identity ?
@@ -59,9 +59,10 @@ It is also possible to use a cloud agent. Holders can request all verifiable dig
 |
 The use of a blockhain to support SSI is not mandatory and it is necessary to understand the real relationship between SSI and blockchains :
 Verifiable credentials are totally off-chain data containers. The signature of the verifiable credential is integrated into the digital document itself, so it does not require a transaction on a blockchain.
-On the other hand, the latter brings significant added value as a decentralized source of trust for integrity content protection. An example is the link between the DID of an Issuer or a Verifier
-and their cryptographic materials. The data likely to be carried by a decentralized registry are numerous: such as verifiable credential data model, revocation registries, 
-public issuer keys, trusted issuer and verifier registries. See **Verifiable Data Regitry**.
+On the other hand, the latter brings significant added value as a decentralized source of trust for integrity content protection.
+An example is the link between the DID of an Issuer or a Verifier and their cryptographic materials (DID document) which can be stored efficiently on a DLT.
+
+The data likely to be carried by a decentralized ledger are numerous: such as verifiable credential data model, revocation registries, public issuer keys, trusted issuer and verifier registries. See **Verifiable Data Regitry**.
 
 For a natural person the added value of SSI is huge. It is a game changer compared to other "identity solutions". An SSI wallet is different from a solution 
 such as the Apple wallet because the user is the sole owner of his wallet and so he can add new credentials to it without asking for authorization from a third party.
@@ -208,7 +209,7 @@ Many credentials are today available specifically for Web3 use cases :
 * Nationality proof
 * Residency proof
 * AML check
-* ID card, Driver License, Passport as full KYC
+* Verifiable ID (EBSI/ESSIF)
 * Unique identifier for DAO voting
 * Email proof and Phone proof for authentication
 * Verifiable credentials for blockchain account proof of ownership for Tezos, Ethereum, Polygon, Fantom and Binance chain
@@ -248,8 +249,7 @@ Altme Web3 Issuer DID
 
 Altme Issuer DID is **did:web:app.altme.io:issuer**
 
-Altme Issuer DID Document is available through the DIF Universal Resolver : https://dev.uniresolver.io/ and see below its content.
- 
+ |
 
 .. code-block:: JSON
 
@@ -289,6 +289,10 @@ Altme Issuer DID Document is available through the DIF Universal Resolver : http
             ]
       }
 
+.. centered:: Altme Issuer DID Document is available through the DIF Universal Resolver : https://dev.uniresolver.io/
+
+
+|
 
 Altme used some other DIDs (deprecated)
 
@@ -366,15 +370,14 @@ The proof of blockchain address ownership
 
 It is a verifiable credential which is issued by the "crypto account" of the wallet itself and whose subject is the identity (DID) carried by the wallet. Once presented to a verifier, it is a credential that has the signature of the two private keys.
 
-From our point of view, this credential is one of the most important of the universal wallets because it makes it possible to establish in a peer to peer mode a link between the DID and the addresses
+This credential is one of the **most important of the universal wallet** because it makes it possible to establish in a peer to peer mode a link between the DID and the addresses
 of the transactions while guaranteeing the maximum protection of the user's identity. For instance if you want to prove that the owner of a blockchain address is over 18 years old, you will need to transfer 2 verifiable credentials to the verifier:
 the first proving the link between the user's DID and the age attribute (over 18), the second proving that the DID is the owner of the blockchain address.
 
 For this very specific verifiable credential we use the DID method **did:pkh** perfectly fitted for DIDs associated to  
 crypto addresses : cf https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md  
 
-
-Example of a proof of blockchain account ownership verifiable credentials with did:pkh:tz as the DID method of the crypto wallet for a Tezos account (JSON-LD format):
+|
 
 .. code-block:: JSON
 
@@ -421,6 +424,11 @@ Example of a proof of blockchain account ownership verifiable credentials with d
    }
 
 
+.. centered:: Example of a proof of blockchain account ownership verifiable credentials with did:pkh:tz as the DID method of the crypto wallet for a Tezos account (JSON-LD format
+
+
+
+|
 |
 
 .. image:: blockchain_accounts.png  
